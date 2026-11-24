@@ -1,0 +1,2505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="charter">
+  <title>Allan Villones Baguio — Registered Master Electrician &amp; Electrical Sub-Contractor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* 1. Charter base palette adapted with Industrial Navy (#1B2A47) & Safety Gold (#F59E0B) */
+      --background: #f6f4ee;
+      --surface-container-low: #fffdf9;
+      --surface-container: #ebe6da;
+      --surface-container-high: #e1dac9;
+
+      /* Ink */
+      --on-surface: #151c28;
+      --on-surface-variant: #4a5568;
+
+      /* 2. Requested Brand Tokens: Industrial Navy & Safety Gold */
+      --primary: #1b2a47;
+      --on-primary: #f6f4ee;
+      --primary-container: #e4e9f2;
+      --on-primary-container: #1b2a47;
+
+      --outline: #f59e0b;
+      --outline-variant: #d6cfc0;
+      --safety-gold: #f59e0b;
+      --on-safety-gold: #1b2a47;
+
+      --secondary: #225444;
+      --tertiary: #9a5b00;
+      --error: #b42318;
+      --on-error: #fffdf9;
+
+      /* 3. Shared tokens */
+      --positive: #1f6b47;
+      --warning: #b45309;
+      --focus: #f59e0b;
+
+      --data-1: #1b2a47;
+      --data-2: #f59e0b;
+      --data-3: #225444;
+      --data-4: #476c9b;
+      --data-context: #c2bba9;
+
+      /* Fonts */
+      --font-headline: 'Libre Caslon Text', serif;
+      --font-body: 'Inter', sans-serif;
+      --font-label: 'IBM Plex Mono', monospace;
+
+      /* Type scale -- Narrative */
+      --display-size: clamp(2.3rem, 1.4rem + 3vw, 3.65rem);
+      --headline-size: clamp(1.6rem, 1.15rem + 1.5vw, 2.25rem);
+      --subhead-size: clamp(1.125rem, 1.02rem + 0.45vw, 1.35rem);
+      --body-size: clamp(1rem, 0.96rem + 0.18vw, 1.0625rem);
+      --label-size: 0.75rem;
+
+      /* Shape (Charter squared corners) */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.25rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --brass-rule: 2px solid var(--outline);
+      --gold-band-rule: 3px solid var(--safety-gold);
+      --hairline: 1px solid var(--outline-variant);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+      --navy-lede: color-mix(in srgb, var(--on-primary) 82%, var(--primary));
+      --navy-muted: color-mix(in srgb, var(--on-primary) 65%, var(--primary));
+      --navy-border: color-mix(in srgb, var(--on-primary) 20%, var(--primary));
+      --navy-card: color-mix(in srgb, var(--on-primary) 7%, var(--primary));
+      --navy-hover: color-mix(in srgb, var(--primary) 84%, var(--on-surface));
+      --gold-wash: color-mix(in srgb, var(--safety-gold) 14%, var(--surface-container-low));
+      --green-wash: color-mix(in srgb, var(--positive) 10%, var(--surface-container-low));
+      --primary-ring: 0 0 0 3px var(--focus);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 5.5rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding-left: var(--space-lg);
+      padding-right: var(--space-lg);
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-2xl);
+      padding-top: var(--space-xl);
+      padding-bottom: var(--space-2xl);
+      max-width: 1160px;
+      margin: 0 auto;
+      padding-left: var(--space-lg);
+      padding-right: var(--space-lg);
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      margin: 0;
+      color: var(--on-surface);
+    }
+    p { margin: 0; max-width: 65ch; }
+
+    .label-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--tertiary);
+    }
+
+    /* Hero Title Band (Charter #1 & #2) */
+    .title-band {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-bottom: var(--gold-band-rule);
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .status-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .badge-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--safety-gold);
+      color: var(--on-safety-gold);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded);
+    }
+
+    .badge-navy-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      border: 1px solid var(--safety-gold);
+      color: var(--safety-gold);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded);
+    }
+
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--on-primary);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--safety-gold);
+    }
+
+    .hero-titles {
+      margin-top: var(--space-md);
+      font-family: var(--font-body);
+      font-size: var(--subhead-size);
+      font-weight: 600;
+      color: var(--safety-gold);
+      line-height: 1.4;
+    }
+
+    .title-band .lede {
+      margin-top: var(--space-sm);
+      color: var(--navy-lede);
+      font-size: var(--body-size);
+      line-height: 1.6;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--navy-border);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--navy-lede);
+    }
+
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+    }
+
+    /* Hero KPI Statement Card Column */
+    .hero-dossier-panel {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-top: 3px solid var(--safety-gold);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .hero-dossier-panel .panel-heading {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--safety-gold);
+      border-bottom: 1px solid var(--navy-border);
+      padding-bottom: var(--space-sm);
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+
+    .hero-stat {
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--navy-border);
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: 1.85rem;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-primary);
+    }
+
+    .hero-stat-label {
+      margin-top: var(--space-xs);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--navy-muted);
+      line-height: 1.35;
+    }
+
+    .hero-benchmark-note {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--navy-lede);
+    }
+
+    /* Quick Jump Index Bar */
+    .index-nav {
+      background: var(--surface-container-low);
+      border-bottom: var(--hairline);
+    }
+
+    .index-nav-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-lg);
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .index-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .index-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 var(--space-sm);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .index-link:hover, .index-link:focus-visible {
+      border-bottom-color: var(--safety-gold);
+      background: var(--primary-container);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-lg);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      border-radius: var(--rounded);
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .btn-gold {
+      background: var(--safety-gold);
+      color: var(--on-safety-gold);
+      font-weight: 600;
+    }
+    .btn-gold:hover {
+      background: color-mix(in srgb, var(--safety-gold) 88%, var(--on-primary));
+    }
+
+    .btn-navy {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn-navy:hover {
+      background: var(--navy-hover);
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      color: var(--on-primary);
+      border-color: var(--navy-lede);
+    }
+    .btn-outline-light:hover {
+      background: var(--navy-card);
+      border-color: var(--safety-gold);
+    }
+
+    .btn-outline-navy {
+      background: var(--surface-container-low);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-outline-navy:hover {
+      background: var(--primary-container);
+    }
+
+    .btn-sm {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      font-size: 0.875rem;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Section Headers (Charter #5) */
+    .section-block {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    .section-head {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-md);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-md);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-md);
+    }
+
+    .section-head-main {
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .section-head h2 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .section-lede {
+      color: var(--on-surface-variant);
+      font-size: var(--body-size);
+      max-width: 62ch;
+    }
+
+    /* Charter Figure Cards */
+    .figure-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+
+    .figure-card-plain {
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+
+    /* Tags / Stamps */
+    .stamp-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      border: 1px solid var(--outline);
+      color: var(--tertiary);
+      background: transparent;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      padding: 2px var(--space-sm);
+      border-radius: var(--rounded);
+    }
+
+    .stamp-tag-navy {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      padding: 2px var(--space-sm);
+      border-radius: var(--rounded);
+    }
+
+    .stamp-tag-positive {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--green-wash);
+      border: 1px solid var(--positive);
+      color: var(--positive);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      padding: 2px var(--space-sm);
+      border-radius: var(--rounded);
+    }
+
+    /* Section 1: Skills Matrix */
+    .filter-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-md);
+      background: var(--surface-container);
+      padding: var(--space-md);
+      border-radius: var(--rounded-lg);
+      border: var(--hairline);
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .filter-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+
+    .filter-btn:hover {
+      background: var(--primary-container);
+    }
+
+    .filter-btn.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+      box-shadow: inset 0 -3px 0 var(--safety-gold);
+    }
+
+    .search-field {
+      display: grid;
+      gap: var(--space-xs);
+      min-width: 240px;
+      flex: 0 1 280px;
+    }
+
+    .input-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+    }
+
+    .text-input {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--on-surface);
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      width: 100%;
+    }
+
+    .skills-workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(245px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .skill-card {
+      text-align: left;
+      width: 100%;
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-top: 2px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      cursor: pointer;
+      display: grid;
+      gap: var(--space-sm);
+      transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .skill-card:hover {
+      background: var(--gold-wash);
+    }
+
+    .skill-card.is-selected {
+      background: var(--primary-container);
+      border-top: 3px solid var(--safety-gold);
+      box-shadow: 0 0 0 1px var(--primary);
+    }
+
+    .skill-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .skill-card-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.05rem;
+      line-height: 1.25;
+      color: var(--on-surface);
+    }
+
+    .skill-card-summary {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      line-height: 1.45;
+    }
+
+    .skill-detail-panel {
+      background: var(--surface-container-low);
+      border-top: 3px solid var(--safety-gold);
+      border-left: var(--hairline);
+      border-right: var(--hairline);
+      border-bottom: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .detail-list {
+      margin: 0;
+      padding-left: var(--space-lg);
+      display: grid;
+      gap: var(--space-sm);
+      font-size: 0.9375rem;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .spec-table th, .spec-table td {
+      padding: var(--space-sm) var(--space-xs);
+      border-bottom: var(--hairline);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .spec-table th {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+      width: 38%;
+    }
+
+    .spec-table td {
+      font-variant-numeric: tabular-nums;
+      color: var(--on-surface);
+    }
+
+    /* Section 2: July 2026 Certifications Showcase */
+    .cert-showcase-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .cert-tabs {
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    .cert-tab-btn {
+      text-align: left;
+      width: 100%;
+      min-height: 60px;
+      padding: var(--space-md);
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-left: 3px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      display: grid;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .cert-tab-btn:hover {
+      background: var(--surface-container);
+    }
+
+    .cert-tab-btn.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-left: 4px solid var(--safety-gold);
+    }
+
+    .cert-tab-btn.is-active .cert-tab-meta {
+      color: var(--safety-gold);
+    }
+
+    .cert-tab-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .cert-tab-meta {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tertiary);
+    }
+
+    .cert-detail-stage {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      border-left: var(--hairline);
+      border-right: var(--hairline);
+      border-bottom: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .schematic-box {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      border: 1px solid var(--navy-border);
+    }
+
+    .schematic-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .svg-node-box {
+      fill: var(--navy-card);
+      stroke: var(--navy-border);
+      stroke-width: 1.5;
+    }
+
+    .svg-node-active {
+      fill: var(--primary);
+      stroke: var(--safety-gold);
+      stroke-width: 2.5;
+    }
+
+    .svg-line {
+      stroke: var(--navy-muted);
+      stroke-width: 1.5;
+      stroke-dasharray: 4 3;
+    }
+
+    .svg-line-active {
+      stroke: var(--safety-gold);
+      stroke-width: 2.5;
+    }
+
+    .svg-label {
+      fill: var(--on-primary);
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .svg-sub {
+      fill: var(--navy-lede);
+      font-family: var(--font-body);
+      font-size: 9px;
+    }
+
+    .svg-gold-text {
+      fill: var(--safety-gold);
+      font-family: var(--font-label);
+      font-size: 9px;
+      font-weight: 600;
+    }
+
+    /* Section 3: Work Authorization & Onboarding */
+    .pathway-toggle-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .pathway-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .readiness-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .readiness-table thead th {
+      background: var(--surface-container-high);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: var(--space-sm) var(--space-md);
+      text-align: left;
+      color: var(--on-surface);
+    }
+
+    .readiness-table td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--hairline);
+      font-size: 0.9375rem;
+      vertical-align: middle;
+    }
+
+    /* Section 4: Leadership & Supervision */
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .pillar-list {
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .pillar-item {
+      padding-left: var(--space-md);
+      border-left: 3px solid var(--safety-gold);
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .pillar-item h3 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+
+    .country-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-top: var(--space-xs);
+    }
+
+    /* Section 5: Media & Future Upload Hub */
+    .media-hub-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .video-stage {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-top: 3px solid var(--safety-gold);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .video-player-frame {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--rounded);
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-md);
+      text-align: center;
+      gap: var(--space-sm);
+    }
+
+    .video-player-frame video {
+      width: 100%;
+      max-height: 280px;
+      border-radius: var(--rounded);
+      background: var(--on-surface);
+    }
+
+    .quote-transcript {
+      background: var(--navy-card);
+      border-left: 2px solid var(--safety-gold);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--navy-lede);
+    }
+
+    .gallery-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .media-slot-card {
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 132px auto;
+      cursor: pointer;
+      transition: box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .media-slot-card.is-selected {
+      box-shadow: 0 0 0 2px var(--primary), 0 4px 0 var(--safety-gold);
+    }
+
+    .media-thumb-wrap {
+      background: var(--surface-container);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: var(--hairline);
+    }
+
+    .media-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-slot-body {
+      padding: var(--space-sm) var(--space-md) var(--space-md);
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .media-inspector {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      border-left: var(--hairline);
+      border-right: var(--hairline);
+      border-bottom: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    .media-inspector-preview {
+      max-height: 240px;
+      background: var(--surface-container);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: var(--space-sm);
+    }
+
+    .media-inspector-preview img {
+      max-width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+    }
+
+    .sr-only-file {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .upload-label-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Section 6: Contact & Action Bar */
+    .contact-footer-band {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-top: var(--gold-band-rule);
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .contact-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-top: 2px solid var(--safety-gold);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .contact-card-value {
+      font-family: var(--font-label);
+      font-size: 0.875rem;
+      color: var(--on-primary);
+      word-break: break-word;
+    }
+
+    .toast-status {
+      min-height: 24px;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--safety-gold);
+      margin-top: var(--space-sm);
+    }
+
+    .sources-note {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--navy-border);
+      font-size: 0.8125rem;
+      color: var(--navy-muted);
+      line-height: 1.5;
+    }
+
+    .hidden-block {
+      display: none !important;
+    }
+
+    /* Container queries for adaptive cards */
+    .card-wrapper { container-type: inline-size; }
+    @container (max-width: 440px) {
+      .hero-stat-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Responsive breakpoints */
+    @media (max-width: 880px) {
+      .hero-grid,
+      .skills-workspace,
+      .cert-showcase-grid,
+      .pathway-grid,
+      .leadership-grid,
+      .media-hub-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .title-band { padding: var(--space-xl) 0 var(--space-lg); }
+      .container, .page-grid, .index-nav-inner {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+      }
+      .hero-stat-grid { grid-template-columns: 1fr; }
+      .filter-toolbar { align-items: stretch; }
+      .search-field { flex: 1 1 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media print {
+      .index-nav, .filter-toolbar, .upload-label-btn, .btn, .toast-status {
+        display: none !important;
+      }
+      .title-band, .contact-footer-band {
+        background: var(--surface-container-low);
+        color: var(--on-surface);
+        border-color: var(--on-surface);
+      }
+      .title-band h1, .hero-stat-num, .contact-card-value {
+        color: var(--on-surface);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO TITLE BAND -->
+  <header class="title-band" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="status-strip">
+          <span class="badge-gold">
+            <i data-lucide="shield-check" aria-hidden="true" style="width:14px;height:14px;"></i>
+            SkilledTradesBC Profile: In Progress
+          </span>
+          <span class="badge-navy-outline">
+            <i data-lucide="map-pin" aria-hidden="true" style="width:14px;height:14px;"></i>
+            Relocating: Lower Mainland / Fraser Valley, BC
+          </span>
+        </div>
+
+        <h1>Allan Villones Baguio</h1>
+        <p class="hero-titles">
+          Registered Master Electrician (PRC) &middot; Construction Electrician (NOC 72200) &middot; Electrical Sub-Contractor
+        </p>
+        <p class="lede">
+          20+ years of full-scope residential, commercial, and light industrial electrical execution—combining main distribution panel builds, EMT/rigid conduit mastery, AutoCAD Electrical drafting, and July 2026 industrial automation credentials (VFD, PLC &amp; HMI) for British Columbia contractors.
+        </p>
+
+        <div class="hero-meta-row">
+          <span class="hero-meta-item">
+            <i data-lucide="compass" aria-hidden="true" style="width:15px;height:15px;"></i>
+            Target Hub: Aldergrove &middot; Langley &middot; Richmond, BC
+          </span>
+          <span class="hero-meta-item">
+            <i data-lucide="file-check-2" aria-hidden="true" style="width:15px;height:15px;"></i>
+            LMIA &amp; Spousal Open Work Permit Dual Pathway
+          </span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-gold">
+            <i data-lucide="phone-call" aria-hidden="true" style="width:16px;height:16px;"></i>
+            Direct Contact &amp; WhatsApp
+          </a>
+          <button type="button" class="btn btn-outline-light" onclick="downloadResumeBrief()">
+            <i data-lucide="download" aria-hidden="true" style="width:16px;height:16px;"></i>
+            Download Resume Brief (.txt)
+          </button>
+          <button type="button" class="btn btn-outline-light" onclick="window.print()">
+            <i data-lucide="printer" aria-hidden="true" style="width:16px;height:16px;"></i>
+            Print / Save PDF
+          </button>
+        </div>
+      </div>
+
+      <aside class="hero-dossier-panel card-wrapper" aria-label="Career Key Figures">
+        <div class="panel-heading">Verified Trade Credentials &amp; Readiness</div>
+        <div class="hero-stat-grid">
+          <div class="hero-stat">
+            <div class="hero-stat-num">20+ Yrs</div>
+            <div class="hero-stat-label">Master Electrician &amp; Sub-Contractor</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">216 Hrs</div>
+            <div class="hero-stat-label">July 2026 Certified Automation &amp; EIM</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">4–10</div>
+            <div class="hero-stat-label">Apprentices &amp; Crew Supervised</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">0</div>
+            <div class="hero-stat-label">Long-Term Sponsorship Dependency</div>
+          </div>
+        </div>
+        <p class="hero-benchmark-note">
+          Benchmarked for Lower Mainland NOC 72200 Construction Electrician roles (Aldergrove &amp; Richmond $39.00/hr market tier): 30–750V multiphase service, standby generator/UPS hookups, pool/hot tub bonding, and active AutoCAD blueprints.
+        </p>
+      </aside>
+    </div>
+  </header>
+
+  <!-- QUICK JUMP NAVIGATION -->
+  <nav class="index-nav" aria-label="Portfolio sections">
+    <div class="index-nav-inner">
+      <div class="index-links">
+        <a class="index-link" href="#skills">01 Skills Matrix</a>
+        <a class="index-link" href="#certifications">02 July 2026 Training</a>
+        <a class="index-link" href="#work-auth">03 BC Work Auth</a>
+        <a class="index-link" href="#leadership">04 Crew Leadership</a>
+        <a class="index-link" href="#media-hub">05 Media &amp; Upload Hub</a>
+        <a class="index-link" href="#contact">06 Contact</a>
+      </div>
+      <span class="label-kicker">NOC 72200 &middot; CEC Part I Ready</span>
+    </div>
+  </nav>
+
+  <main class="page-grid">
+
+    <!-- SECTION 1: INTERACTIVE FILTERABLE SKILLS MATRIX -->
+    <section class="section-block" id="skills" aria-labelledby="skills-heading">
+      <div class="section-head">
+        <div class="section-head-main">
+          <span class="label-kicker">01 &middot; Technical Competency Matrix</span>
+          <h2 id="skills-heading">Field Installations, Automation &amp; Code-Compliant Testing</h2>
+          <p class="section-lede">
+            Filter core competencies across commercial power distribution, civil cabling, industrial drives, and specialty bonding. Select any discipline to inspect equipment platforms and BC job-site alignment.
+          </p>
+        </div>
+        <span class="stamp-tag" id="skills-count-badge">8 of 8 Disciplines Active</span>
+      </div>
+
+      <div class="filter-toolbar">
+        <div>
+          <span class="input-label" style="display:block;margin-bottom:var(--space-xs);">Filter by Trade Domain</span>
+          <div class="filter-pills" role="group" aria-label="Skill domain filters">
+            <button type="button" class="filter-btn is-active" data-cat="all" onclick="setSkillCategory('all')">All Systems</button>
+            <button type="button" class="filter-btn" data-cat="power" onclick="setSkillCategory('power')">Power &amp; Panels</button>
+            <button type="button" class="filter-btn" data-cat="conduit" onclick="setSkillCategory('conduit')">Conduit &amp; Civil</button>
+            <button type="button" class="filter-btn" data-cat="automation" onclick="setSkillCategory('automation')">PLC &amp; VFD Automation</button>
+            <button type="button" class="filter-btn" data-cat="testing" onclick="setSkillCategory('testing')">Testing &amp; Grounding</button>
+          </div>
+        </div>
+        <div class="search-field">
+          <label for="skill-search" class="input-label">Keyword Filter (e.g. Schneider, EMT, Pool)</label>
+          <input type="search" id="skill-search" class="text-input" oninput="setSkillQuery(this.value)" placeholder="Filter by tool, brand, or code task">
+        </div>
+      </div>
+
+      <div class="skills-workspace">
+        <div class="skills-grid" id="skills-grid" role="list"></div>
+
+        <aside class="skill-detail-panel" id="skill-detail-panel" aria-live="polite">
+          <!-- Populated dynamically -->
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION 2: JULY 2026 ADVANCED CERTIFICATIONS SHOWCASE -->
+    <section class="section-block" id="certifications" aria-labelledby="certs-heading">
+      <div class="section-head">
+        <div class="section-head-main">
+          <span class="label-kicker">02 &middot; July 2026 Formal Upskilling &amp; Licensure</span>
+          <h2 id="certs-heading">216 Hours of Certified Electrical &amp; Industrial Automation Training</h2>
+          <p class="section-lede">
+            Completed formal TESDA national competency certifications and industrial drive/PLC training in July 2026—bridging traditional Philippine Registered Master Electrician (RME) construction mastery with modern automated building controls.
+          </p>
+        </div>
+        <span class="stamp-tag-positive">
+          <i data-lucide="award" aria-hidden="true" style="width:14px;height:14px;"></i>
+          PRC RME + 216 Hrs Certified (July 2026)
+        </span>
+      </div>
+
+      <div class="cert-showcase-grid">
+        <div class="cert-tabs" role="tablist" aria-label="July 2026 Certifications">
+          <!-- Populated dynamically -->
+        </div>
+
+        <div class="cert-detail-stage" id="cert-detail-stage" role="tabpanel" aria-live="polite">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CANADIAN WORK AUTHORIZATION & ONBOARDING MODULE -->
+    <section class="section-block" id="work-auth" aria-labelledby="auth-heading">
+      <div class="section-head">
+        <div class="section-head-main">
+          <span class="label-kicker">03 &middot; Immigration &amp; SkilledTradesBC Readiness</span>
+          <h2 id="auth-heading">Immediate LMIA Compatibility + Zero-Dependency Spousal PR Pathway</h2>
+          <p class="section-lede">
+            Designed for Fraser Valley and Lower Mainland electrical employers seeking reliable, long-term senior trades talent without recurring sponsorship risk.
+          </p>
+        </div>
+        <div class="pathway-toggle-row" role="group" aria-label="Work authorization pathway selector">
+          <button type="button" class="filter-btn is-active" id="btn-pathway-lmia" onclick="setAuthPathway('lmia')">Pathway A: Immediate LMIA</button>
+          <button type="button" class="filter-btn" id="btn-pathway-spousal" onclick="setAuthPathway('spousal')">Pathway B: Spousal Open Permit &amp; PR</button>
+        </div>
+      </div>
+
+      <div class="pathway-grid">
+        <div class="figure-card" id="pathway-detail-card" aria-live="polite">
+          <!-- Populated dynamically -->
+        </div>
+
+        <div class="figure-card-plain">
+          <div class="label-kicker" style="margin-bottom:var(--space-sm);">BC Onboarding Verification Matrix</div>
+          <table class="readiness-table">
+            <thead>
+              <tr>
+                <th scope="col">Credential / Requirement</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>SkilledTradesBC Account</strong><br><span style="color:var(--on-surface-variant);font-size:0.8125rem;">Trade Equivalency Assessment (TEA)</span></td>
+                <td><span class="stamp-tag">In Progress</span></td>
+              </tr>
+              <tr>
+                <td><strong>Statutory Declarations &amp; Employer Forms</strong><br><span style="color:var(--on-surface-variant);font-size:0.8125rem;">20+ years documented field hours</span></td>
+                <td><span class="stamp-tag-positive">Completed &amp; Ready</span></td>
+              </tr>
+              <tr>
+                <td><strong>Philippine RME License (PRC)</strong><br><span style="color:var(--on-surface-variant);font-size:0.8125rem;">CEC Part I transition foundation</span></td>
+                <td><span class="stamp-tag-positive">Active / Verified</span></td>
+              </tr>
+              <tr>
+                <td><strong>Spousal Canadian Citizenship Link</strong><br><span style="color:var(--on-surface-variant);font-size:0.8125rem;">Married to Filipino-Canadian dual citizen</span></td>
+                <td><span class="stamp-tag-positive">Full PR Eligibility</span></td>
+              </tr>
+              <tr>
+                <td><strong>OHS Safety &amp; First Aid</strong><br><span style="color:var(--on-surface-variant);font-size:0.8125rem;">LOTO, PPE &amp; FLRA site compliance</span></td>
+                <td><span class="stamp-tag-positive">Verified / Valid</span></td>
+              </tr>
+              <tr>
+                <td><strong>Driver&rsquo;s License</strong><br><span style="color:var(--on-surface-variant);font-size:0.8125rem;">International / Philippine license</span></td>
+                <td><span class="stamp-tag-positive">Clean Record</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: SUB-CONTRACTING LEADERSHIP & CREW SUPERVISION -->
+    <section class="section-block" id="leadership" aria-labelledby="lead-heading">
+      <div class="section-head">
+        <div class="section-head-main">
+          <span class="label-kicker">04 &middot; Sub-Contracting, Crew Direction &amp; Cooperative Stewardship</span>
+          <h2 id="lead-heading">Directing 4–10 Trade Crew &amp; Contracting for International Property Owners</h2>
+          <p class="section-lede">
+            Proven business ownership from concept, AutoCAD permit schematics, and material procurement through final energization and zero-incident site handover.
+          </p>
+        </div>
+      </div>
+
+      <div class="leadership-grid">
+        <div class="figure-card">
+          <div class="pillar-list">
+            <div class="pillar-item">
+              <h3>Recruiting, Hiring &amp; Supervising 4–10 Apprentices &amp; Journeymen</h3>
+              <p>
+                Operated an independent electrical contracting practice overseeing daily work scheduling, task assignment from structural blueprints, quality control inspections, and hands-on apprentice mentorship across multi-storey commercial builds and residential subdivisions.
+              </p>
+            </div>
+            <div class="pillar-item">
+              <h3>Fluent English Contracting with Expatriate Property Owners</h3>
+              <p>
+                Two decades of negotiating formal contracts, formulating scopes of work, preparing material cost estimates, and managing billing directly in fluent English with expatriate homeowners and commercial clients from seven Western nations:
+              </p>
+              <div class="country-strip" aria-label="Expatriate client nationalities">
+                <span class="stamp-tag-navy">Canada</span>
+                <span class="stamp-tag-navy">United States</span>
+                <span class="stamp-tag-navy">United Kingdom</span>
+                <span class="stamp-tag-navy">Australia</span>
+                <span class="stamp-tag-navy">Switzerland</span>
+                <span class="stamp-tag-navy">Belgium</span>
+                <span class="stamp-tag-navy">France</span>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <h3>AutoCAD Electrical Schematics &amp; Inventory Control</h3>
+              <p>
+                Drafts and modifies accurate electrical layouts from initial concept to permit approval in AutoCAD, while maintaining conduit, wire, breaker, and fitting inventories to eliminate construction downtime.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="figure-card-plain" style="background:var(--surface-container);border-top:var(--brass-rule);">
+          <span class="label-kicker">Community &amp; Industry Advocacy</span>
+          <h3 style="font-family:var(--font-headline);font-weight:700;font-size:1.25rem;margin-top:var(--space-xs);margin-bottom:var(--space-md);">
+            BOHECO Cooperative &amp; Canadian Trade Transition
+          </h3>
+          <div class="pillar-list">
+            <div>
+              <strong style="color:var(--primary);">Treasurer &amp; Administrator &mdash; BOHECO Electrician Community</strong>
+              <p style="font-size:0.9375rem;color:var(--on-surface-variant);margin-top:var(--space-xs);">
+                Serves as Treasurer for the Bohol Light / BOHECO electrician cooperative chapter, coordinating member funds and cooperative initiatives, while moderating the official provincial Facebook group for hundreds of local electricians.
+              </p>
+            </div>
+            <div style="padding-top:var(--space-sm);border-top:var(--hairline);">
+              <strong style="color:var(--primary);">Contributing Advisor &mdash; &ldquo;Wired for Canada&rdquo; E-Book Series</strong>
+              <p style="font-size:0.9375rem;color:var(--on-surface-variant);margin-top:var(--space-xs);">
+                Collaborates on a practical guide helping international construction electricians navigate SkilledTradesBC credential recognition, Field Level Risk Assessments (FLRAs), tool safety, and Canadian job-site quality standards.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION 5: MEDIA & FUTURE UPLOAD HUB -->
+    <section class="section-block" id="media-hub" aria-labelledby="media-heading">
+      <div class="section-head">
+        <div class="section-head-main">
+          <span class="label-kicker">05 &middot; Interactive Evidence Gallery &amp; Local File Preview</span>
+          <h2 id="media-heading">Media &amp; Future Upload Hub</h2>
+          <p class="section-lede">
+            Preview job-site installations, July 2026 certificate scans, AutoCAD plans, and graduation video clips directly in your browser. Select local files from your device to populate any slot immediately—files stay local in memory with zero external upload.
+          </p>
+        </div>
+        <span class="stamp-tag" id="media-upload-counter">0 Local Files Loaded</span>
+      </div>
+
+      <div class="media-hub-grid">
+        <!-- Video Showcase Slot -->
+        <div class="video-stage">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:var(--space-sm);flex-wrap:wrap;">
+            <span class="badge-gold">Video Slot &middot; Graduation Remarks</span>
+            <span style="font-family:var(--font-label);font-size:var(--label-size);color:var(--navy-lede);">AllanSayingFewWordsAtHisGrad.mp4</span>
+          </div>
+
+          <div class="video-player-frame" id="video-player-frame">
+            <i data-lucide="film" aria-hidden="true" style="width:32px;height:32px;color:var(--safety-gold);"></i>
+            <strong style="font-size:1rem;">July 2026 Graduation Speech Preview Slot</strong>
+            <p style="font-size:0.875rem;color:var(--navy-lede);max-width:42ch;">
+              Load <code>AllanSayingFewWordsAtHisGrad.mp4</code> or any job-site walkthrough video from your device to play it directly here.
+            </p>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center;">
+            <label for="video-file-input" class="upload-label-btn btn-gold">
+              <i data-lucide="upload" aria-hidden="true" style="width:16px;height:16px;"></i>
+              Load Local Video (.mp4 / .mov)
+            </label>
+            <input type="file" id="video-file-input" class="sr-only-file" accept="video/*" onchange="handleVideoUpload(this)">
+            <button type="button" class="btn btn-outline-light btn-sm" id="reset-video-btn" onclick="resetVideoSlot()" disabled>
+              Clear Video
+            </button>
+          </div>
+
+          <blockquote class="quote-transcript" style="margin:0;">
+            <div style="font-family:var(--font-label);font-size:var(--label-size);color:var(--safety-gold);margin-bottom:var(--space-xs);">
+              SOURCE EXCERPT &middot; BOHOL GRADUATION REMARKS
+            </div>
+            &ldquo;Working freelance in Bohol and continuing my electrical engineering studies, I saw the industry becoming increasingly automated—so I pursued advanced training to upgrade my electrical skills for modern automated systems.&rdquo;
+          </blockquote>
+        </div>
+
+        <!-- Photo & Certificate Scan Gallery -->
+        <div style="display:grid;gap:var(--space-md);">
+          <div class="gallery-controls">
+            <div class="filter-pills" role="group" aria-label="Media gallery category filters">
+              <button type="button" class="filter-btn is-active" data-mcat="all" onclick="setMediaFilter('all')">All Slots</button>
+              <button type="button" class="filter-btn" data-mcat="jobsite" onclick="setMediaFilter('jobsite')">Job-Site</button>
+              <button type="button" class="filter-btn" data-mcat="certificate" onclick="setMediaFilter('certificate')">Certificates</button>
+              <button type="button" class="filter-btn" data-mcat="schematic" onclick="setMediaFilter('schematic')">AutoCAD</button>
+            </div>
+            <div>
+              <label for="multi-image-input" class="upload-label-btn btn-navy">
+                <i data-lucide="image-plus" aria-hidden="true" style="width:16px;height:16px;"></i>
+                Batch Preview Photos / Scans
+              </label>
+              <input type="file" id="multi-image-input" class="sr-only-file" accept="image/*" multiple onchange="handleBatchImages(this)">
+            </div>
+          </div>
+
+          <div class="gallery-grid" id="media-gallery-grid">
+            <!-- Populated dynamically -->
+          </div>
+
+          <div class="media-inspector" id="media-inspector" aria-live="polite">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SECTION 6: CONTACT & DOWNLOAD ACTION BAR -->
+  <footer class="contact-footer-band" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <span class="badge-gold" style="margin-bottom:var(--space-md);">Ready for Immediate BC Mobilization</span>
+          <h2 style="font-family:var(--font-headline);font-weight:400;font-size:var(--headline-size);color:var(--on-primary);line-height:1.15;">
+            Direct Contact &amp; Employer Action Bar
+          </h2>
+          <p style="color:var(--navy-lede);margin-top:var(--space-sm);line-height:1.6;">
+            Available for technical interviews, SkilledTradesBC verification requests, and immediate deployment to Aldergrove, Langley, Richmond, or anywhere across the Lower Mainland and Fraser Valley. Comfortable with weekday, Saturday, and overtime service calls.
+          </p>
+
+          <div class="hero-actions">
+            <button type="button" class="btn btn-gold" onclick="downloadResumeBrief()">
+              <i data-lucide="file-down" aria-hidden="true" style="width:16px;height:16px;"></i>
+              Download Resume Summary (.txt)
+            </button>
+            <button type="button" class="btn btn-outline-light" onclick="copyTextValue('allanvbags0120131@email.com', 'Email address')">
+              <i data-lucide="copy" aria-hidden="true" style="width:16px;height:16px;"></i>
+              Copy Email
+            </button>
+            <button type="button" class="btn btn-outline-light" onclick="copyTextValue('+63 968-201-0925', 'WhatsApp number')">
+              <i data-lucide="message-square" aria-hidden="true" style="width:16px;height:16px;"></i>
+              Copy WhatsApp
+            </button>
+            <button type="button" class="btn btn-outline-light" onclick="copyTextValue('facebook.com/allan.baguio.975871', 'Facebook trade portfolio path')">
+              <i data-lucide="share-2" aria-hidden="true" style="width:16px;height:16px;"></i>
+              Copy Trade Showcase
+            </button>
+          </div>
+          <div class="toast-status" id="contact-toast" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <span class="label-kicker" style="color:var(--safety-gold);">Email</span>
+            <span class="contact-card-value">allanvbags0120131@email.com</span>
+            <span style="font-size:0.8125rem;color:var(--navy-muted);">Direct correspondence &amp; LMIA documents</span>
+          </div>
+          <div class="contact-card">
+            <span class="label-kicker" style="color:var(--safety-gold);">Phone &amp; WhatsApp</span>
+            <span class="contact-card-value">+63 968-201-0925</span>
+            <span style="font-size:0.8125rem;color:var(--navy-muted);">Voice &amp; video interviews (PHT / PST flexible)</span>
+          </div>
+          <div class="contact-card">
+            <span class="label-kicker" style="color:var(--safety-gold);">Facebook Trade Showcase</span>
+            <span class="contact-card-value">facebook.com/allan.baguio.975871</span>
+            <span style="font-size:0.8125rem;color:var(--navy-muted);">Active AutoCAD plans &amp; installation archive</span>
+          </div>
+          <div class="contact-card">
+            <span class="label-kicker" style="color:var(--safety-gold);">Relocation Target</span>
+            <span class="contact-card-value">Aldergrove / Lower Mainland, BC</span>
+            <span style="font-size:0.8125rem;color:var(--navy-muted);">Currently based in Central Visayas, Philippines</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="sources-note">
+        Compiled from verified candidate documentation: <em>Allan Baguio &mdash; Construction Electrician Resume (BC Canada)</em>, <em>Application Cover Letter for VanCan Electric Ltd. (Job Bank #3644754)</em>, <em>BC Job Bank NOC 72200 Lower Mainland Benchmarks (#3644754 &amp; #3713287)</em>, and <em>July 2026 Graduation Remarks (AllanSayingFewWordsAtHisGrad.mp4)</em>.
+      </p>
+    </div>
+  </footer>
+
+  <api-shim></api-shim>
+
+  <script>
+    /* ==========================================================
+       DATA MODELS (Template literals used for all text strings)
+       ========================================================== */
+    const SKILLS_DATA = [
+      {
+        id: `panel-assembly`,
+        category: `power`,
+        categoryLabel: `Power & Panels`,
+        title: `Panel Box Assembly & Service Entrances`,
+        summary: `Main distribution panels, single-phase & 3-phase power (30–750V), metering, and standby generator/UPS hookups.`,
+        standards: `PRC RME · CEC Part I Ready · NOC 72200`,
+        equipment: `Main Distribution Panels, Breakers, Transformers, Multimetering, Standby Generators & UPS`,
+        tasks: [
+          `Assemble, upgrade, and terminate single-phase and 3-phase main distribution panel boards.`,
+          `Design and construct low-voltage (30 to 750V) multiphase services for single or multimeter installations.`,
+          `Connect standby power generation, power conditioning systems, and UPS backup transfer switches.`,
+          `Execute complete rough-in and finish trim-out wiring for commercial and residential structures.`
+        ],
+        bcMatch: `Directly satisfies Lower Mainland service upgrades, commercial panel replacements, and backup power tasks.`
+      },
+      {
+        id: `conduit-bending`,
+        category: `conduit`,
+        categoryLabel: `Conduit & Civil`,
+        title: `EMT & Rigid Conduit Bending`,
+        summary: `Precision manual & mechanical bending, surface-mount and overhead cable runs, and structured wire pulling.`,
+        standards: `TESDA EIM NC III · Commercial Code`,
+        equipment: `EMT & Rigid Steel Conduit, Benders, Fish Tapes, Pull Boxes, Surface-Mount Hardware`,
+        tasks: [
+          `Measure, cut, and bend EMT and rigid metallic conduit with clean offsets, saddles, and 90-degree sweeps.`,
+          `Install surface-mount and overhead cable runs across multi-storey commercial units.`,
+          `Pull conductors safely without insulation abrasion while managing fill ratios and box capacities.`,
+          `Maintain site inventory of conduit, fittings, boxes, and breakers to prevent jobsite delays.`
+        ],
+        bcMatch: `Proven on multi-storey commercial builds and outdoor/overhead installations.`
+      },
+      {
+        id: `civil-cabling`,
+        category: `conduit`,
+        categoryLabel: `Conduit & Civil`,
+        title: `Civil & Underground Cabling`,
+        summary: `Underground trench cabling, housing subdivision power distribution, and outdoor/civil site infrastructure.`,
+        standards: `Subdivision & Civil Distribution`,
+        equipment: `Underground Conduit, Armored & Direct-Burial Cables, Trenching Specs, Service Pedestals`,
+        tasks: [
+          `Install underground wiring, feeder cables, and service entrance conduits for residential subdivisions.`,
+          `Coordinate civil trenching, conduit depth verification, and warning tape placement before backfill.`,
+          `Execute outdoor, at-heights, and confined-space installations under strict site hazard controls.`
+        ],
+        bcMatch: `Matches BC civil construction, underground feeder, and multi-unit residential site requirements.`
+      },
+      {
+        id: `vfd-drives`,
+        category: `automation`,
+        categoryLabel: `PLC & VFD Automation`,
+        title: `VFD Drive Parameterization`,
+        summary: `Configuring, commissioning, and maintaining Variable Frequency Drives for industrial motor speed control.`,
+        standards: `July 2026 Advanced Drive Certification`,
+        equipment: `Schneider Electric VFDs, Delta Electronics VFDs, 3-Phase Induction Motors`,
+        tasks: [
+          `Configure VFD parameters including accel/decel ramps, V/f curves, current limits, and frequency setpoints.`,
+          `Commission Schneider Electric and Delta Electronics motor speed controllers for light industrial loads.`,
+          `Diagnose overcurrent, overvoltage, and thermal trip faults on active drive installations.`,
+          `Perform preventive maintenance and parameter backup for motor control centers.`
+        ],
+        bcMatch: `Adds industrial motor-control commissioning beyond standard residential/commercial wiring.`
+      },
+      {
+        id: `plc-hmi`,
+        category: `automation`,
+        categoryLabel: `PLC & VFD Automation`,
+        title: `PLC & HMI Systems`,
+        summary: `Programmable Logic Controller ladder logic, HMI operator interfacing, and electro-mechanical automation.`,
+        standards: `TESDA Mechatronics NC II · July 2026`,
+        equipment: `Siemens Logo!, Omron PLCs, HMI Touch Panels, Pneumatic & Relay Control Logic`,
+        tasks: [
+          `Program, wire, and troubleshoot ladder logic using Siemens Logo! and Omron PLC platforms.`,
+          `Integrate Human-Machine Interface (HMI) screens with discrete I/O sensors, relays, and actuators.`,
+          `Service integrated electro-mechanical and pneumatic control circuits under Mechatronics NC II standards.`
+        ],
+        bcMatch: `Enables smooth handling of automated HVAC, pump stations, and industrial control panels.`
+      },
+      {
+        id: `circuit-testing`,
+        category: `testing`,
+        categoryLabel: `Testing & Grounding`,
+        title: `Circuit Testing & Fault Diagnostics`,
+        summary: `Voltage, load, and ground-fault integrity testing, overload isolation, and pre-energization verification.`,
+        standards: `LOTO · Pre-Energization QA`,
+        equipment: `True-RMS Multimeters, Clamp Meters, Insulation/Ground Testers, Lockout/Tagout Kits`,
+        tasks: [
+          `Test and measure voltage, current loads, continuity, and ground-fault integrity across circuits.`,
+          `Troubleshoot and isolate wiring faults, circuit overloads, ground defects, and equipment failures.`,
+          `Enforce Lockout/Tagout (LOTO) procedures and execute final inspection tests prior to energization.`
+        ],
+        bcMatch: `Critical for service calls, emergency fault troubleshooting, and renovation diagnostics.`
+      },
+      {
+        id: `pool-bonding`,
+        category: `testing`,
+        categoryLabel: `Testing & Grounding`,
+        title: `Swimming Pool & Hot Tub Equipment Grounding`,
+        summary: `Equipotential bonding and grounding for swimming pools, hot tubs, wet-location equipment, and structures.`,
+        standards: `Wet-Location Bonding · CEC Section 68 Alignment`,
+        equipment: `Copper Bonding Grids, Grounding Clamps, GFCI Protection, Wet-Location Seals`,
+        tasks: [
+          `Ground and bond electrical equipment, metallic structures, swimming pools, and hot tubs.`,
+          `Verify continuous equipotential bonding loops and GFCI protection to eliminate stray voltage hazards.`,
+          `Inspect terminations and corrosion-resistant clamps for long-term wet-environment safety.`
+        ],
+        bcMatch: `Specifically listed as a priority task on both Aldergrove and Richmond BC Job Bank postings.`
+      },
+      {
+        id: `autocad-safety`,
+        category: `power`,
+        categoryLabel: `Power & Panels`,
+        title: `AutoCAD Electrical & Site Safety (FLRA)`,
+        summary: `Blueprint reading, AutoCAD schematic drafting to permit approval, load estimates, and daily safety talks.`,
+        standards: `AutoCAD Electrical · OHS / First Aid`,
+        equipment: `AutoCAD Electrical, Structural Blueprints, Material Take-Off Sheets, FLRA Forms`,
+        tasks: [
+          `Draft and modify electrical plans from concept to permit approval in AutoCAD Electrical.`,
+          `Read structural blueprints, perform load calculations, and prepare accurate material cost estimates.`,
+          `Lead daily toolbox safety talks, Field Level Risk Assessments (FLRAs), and PPE compliance checks.`
+        ],
+        bcMatch: `Allows independent field execution from blueprint interpretation to permit-ready documentation.`
+      }
+    ];
+
+    const CERTS_DATA = [
+      {
+        id: `eim-nc3`,
+        stageIndex: 0,
+        shortTitle: `TESDA EIM NC III`,
+        fullTitle: `Electrical Installation & Maintenance (NC III)`,
+        issued: `July 2026 · Part of 216-Hour Certified Program`,
+        issuer: `Technical Education and Skills Development Authority (TESDA)`,
+        summary: `National certification validating advanced commercial and light industrial wiring, 3-phase power distribution, motor control circuitry, and code-compliant installation supervision.`,
+        competencies: [
+          `Commercial & industrial polyphase electrical installation and maintenance.`,
+          `Motor control wiring, magnetic starters, protective relays, and distribution panels.`,
+          `Pre-energization testing, fault isolation, and blueprint specification compliance.`
+        ],
+        bcValue: `Provides formal, third-party verified technical equivalency evidence alongside 20+ years of PRC Registered Master Electrician experience for SkilledTradesBC review.`
+      },
+      {
+        id: `vfd-training`,
+        stageIndex: 1,
+        shortTitle: `VFD Drive Training`,
+        fullTitle: `Variable Frequency Drive (VFD) Commissioning & Control`,
+        issued: `July 2026 · Part of 216-Hour Certified Program`,
+        issuer: `Advanced Industrial Automation & Drives Training`,
+        summary: `Hands-on specialized training in configuring, parameterizing, commissioning, and maintaining modern AC motor speed controllers.`,
+        competencies: [
+          `Parameter programming and motor nameplate tuning on Schneider Electric and Delta Electronics drives.`,
+          `Ramp acceleration/deceleration, torque boost, and multi-speed digital/analog input mapping.`,
+          `Fault code diagnosis, thermal protection verification, and drive preventive maintenance.`
+        ],
+        bcValue: `Equips BC commercial and industrial teams to commission variable-speed pumps, fans, conveyors, and HVAC motors without external vendor delays.`
+      },
+      {
+        id: `mechatronics-nc2`,
+        stageIndex: 2,
+        shortTitle: `Mechatronics NC II`,
+        fullTitle: `Mechatronics Servicing (NC II)`,
+        issued: `July 2026 · Part of 216-Hour Certified Program`,
+        issuer: `Technical Education and Skills Development Authority (TESDA)`,
+        summary: `Certified competence in integrated electro-mechanical, pneumatic, and automated industrial control systems.`,
+        competencies: [
+          `Installing, calibrating, and troubleshooting electro-pneumatic valves, actuators, and sensors.`,
+          `Integrating electrical control cabinets with mechanical drive assemblies.`,
+          `Systematic root-cause diagnostics across multi-disciplinary automated equipment.`
+        ],
+        bcValue: `Ideal for light industrial plants, automated building systems, and food/logistics facilities across the Fraser Valley.`
+      },
+      {
+        id: `plc-hmi`,
+        stageIndex: 3,
+        shortTitle: `PLC & HMI Programming`,
+        fullTitle: `Programmable Logic Controllers (PLC) & HMI Systems`,
+        issued: `July 2026 · Part of 216-Hour Certified Program`,
+        issuer: `Advanced Industrial Automation & Drives Training`,
+        summary: `Comprehensive training in ladder logic programming, HMI screen integration, and real-time troubleshooting for automated processes.`,
+        competencies: [
+          `Programming timers, counters, interlocks, and sequential control in Siemens Logo! and Omron PLCs.`,
+          `Wiring discrete/analog field devices and mapping HMI operator controls and alarm states.`,
+          `Online monitoring and rapid logic fault isolation during active production or commissioning.`
+        ],
+        bcValue: `Bridges field electrician wiring skills with automated control logic—reducing commissioning downtime on smart commercial and industrial sites.`
+      }
+    ];
+
+    const PATHWAYS_DATA = {
+      lmia: {
+        badge: `Pathway A &middot; Immediate Deployment`,
+        title: `Compatible with Active LMIA Hiring (e.g., Job Bank #3644754)`,
+        summary: `Allan is ready to onboard immediately through a BC employer’s active Labour Market Impact Assessment (LMIA) or Temporary Foreign Worker stream, bringing 20+ years of senior mastery at day one.`,
+        highlights: [
+          `All Statutory Declarations and Employer Verification Forms documenting 20+ years of experience are completed and ready for submission.`,
+          `SkilledTradesBC Trade Equivalency Assessment (TEA) profile is already active and in progress.`,
+          `Ready to relocate to Aldergrove / Langley / Lower Mainland immediately upon permit approval.`,
+          `Available for flexible weekday, Saturday, evening, and emergency overtime shifts.`
+        ],
+        employerBenefit: `You gain a fluent-English senior electrician who can run crews immediately—while his parallel Spousal PR pathway eliminates long-term sponsorship dependency.`
+      },
+      spousal: {
+        badge: `Pathway B &middot; Permanent Retention`,
+        title: `Spousal Open Work Permit & Permanent Residency (PR) Pathway`,
+        summary: `Married to a Filipino-Canadian dual citizen, Allan holds full family eligibility for Canadian permanent residency via spousal sponsorship—providing a secure, permanent future in British Columbia.`,
+        highlights: [
+          `Spouse is a Canadian citizen, enabling Spousal Open Work Permit and Permanent Residency sponsorship.`,
+          `Zero ongoing employer sponsorship dependency once spousal open work authorization is finalized.`,
+          `Permanent family relocation commitment to the Lower Mainland / Fraser Valley community.`,
+          `Continuous study of Canadian Electrical Code (CEC Part I) ahead of SkilledTradesBC challenge examination.`
+        ],
+        employerBenefit: `Eliminates turnover risk: hiring Allan means investing in a permanent, career-anchored BC tradesperson who intends to stay in the Fraser Valley long-term.`
+      }
+    };
+
+    const MEDIA_SLOTS = [
+      {
+        id: `slot-1`,
+        category: `jobsite`,
+        categoryLabel: `Job-Site Photo`,
+        title: `3-Phase Commercial Panel Assembly`,
+        caption: `Multi-storey commercial unit 3-phase main distribution panel hookup, breaker labeling, and load balancing.`,
+        placeholderType: `panel`,
+        uploadedUrl: null,
+        uploadedName: null
+      },
+      {
+        id: `slot-2`,
+        category: `jobsite`,
+        categoryLabel: `Job-Site Photo`,
+        title: `EMT & Rigid Conduit Runs`,
+        caption: `Surface-mount and overhead EMT/rigid steel conduit bending with pull boxes in commercial construction.`,
+        placeholderType: `conduit`,
+        uploadedUrl: null,
+        uploadedName: null
+      },
+      {
+        id: `slot-3`,
+        category: `certificate`,
+        categoryLabel: `Certificate Scan`,
+        title: `TESDA EIM NC III & Mechatronics NC II`,
+        caption: `July 2026 national competency certificates plus PRC Registered Master Electrician license scan.`,
+        placeholderType: `cert`,
+        uploadedUrl: null,
+        uploadedName: null
+      },
+      {
+        id: `slot-4`,
+        category: `certificate`,
+        categoryLabel: `Certificate Scan`,
+        title: `VFD & PLC/HMI Lab Bench (216 Hrs)`,
+        caption: `Schneider Electric / Delta Electronics VFD parameterization and Siemens Logo! / Omron PLC commissioning.`,
+        placeholderType: `vfd`,
+        uploadedUrl: null,
+        uploadedName: null
+      },
+      {
+        id: `slot-5`,
+        category: `schematic`,
+        categoryLabel: `AutoCAD Blueprint`,
+        title: `AutoCAD Permit Electrical Plan`,
+        caption: `Concept-to-permit lighting, power distribution, and single-line riser diagram drafted in AutoCAD.`,
+        placeholderType: `cad`,
+        uploadedUrl: null,
+        uploadedName: null
+      },
+      {
+        id: `slot-6`,
+        category: `jobsite`,
+        categoryLabel: `Job-Site Photo`,
+        title: `Pool & Hot Tub Equipotential Bonding`,
+        caption: `Wet-location grounding, copper bonding grid verification, and GFCI protection inspection.`,
+        placeholderType: `ground`,
+        uploadedUrl: null,
+        uploadedName: null
+      }
+    ];
+
+    /* ==========================================================
+       APPLICATION STATE (Lightweight JSON-serializable only)
+       ========================================================== */
+    const appState = {
+      activeSkillCategory: `all`,
+      skillSearchQuery: ``,
+      activeSkillId: `panel-assembly`,
+      activeCertId: `eim-nc3`,
+      activePathway: `lmia`,
+      activeMediaFilter: `all`,
+      selectedMediaId: `slot-1`,
+      mediaNotes: {}
+    };
+
+    let currentVideoObjectUrl = null;
+
+    /* ==========================================================
+       PERSISTENCE HELPERS (notebookAppApi safe)
+       ========================================================== */
+    async function loadPersistedState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (typeof saved.activeSkillCategory === `string`) appState.activeSkillCategory = saved.activeSkillCategory;
+            if (typeof saved.activeSkillId === `string`) appState.activeSkillId = saved.activeSkillId;
+            if (typeof saved.activeCertId === `string`) appState.activeCertId = saved.activeCertId;
+            if (typeof saved.activePathway === `string`) appState.activePathway = saved.activePathway;
+            if (typeof saved.activeMediaFilter === `string`) appState.activeMediaFilter = saved.activeMediaFilter;
+            if (typeof saved.selectedMediaId === `string`) appState.selectedMediaId = saved.selectedMediaId;
+            if (saved.mediaNotes && typeof saved.mediaNotes === `object`) appState.mediaNotes = saved.mediaNotes;
+          }
+        }
+      } catch (err) {
+        /* Safe fallback if previewed standalone without host shim */
+      }
+    }
+
+    async function savePersistedState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+          await window.notebookAppApi.setAppState({
+            activeSkillCategory: appState.activeSkillCategory,
+            activeSkillId: appState.activeSkillId,
+            activeCertId: appState.activeCertId,
+            activePathway: appState.activePathway,
+            activeMediaFilter: appState.activeMediaFilter,
+            selectedMediaId: appState.selectedMediaId,
+            mediaNotes: appState.mediaNotes
+          });
+        }
+      } catch (err) {
+        /* Ignore in standalone mode */
+      }
+    }
+
+    /* ==========================================================
+       SECTION 1: SKILLS MATRIX RENDERING & HANDLERS
+       ========================================================== */
+    function getFilteredSkills() {
+      const q = appState.skillSearchQuery.trim().toLowerCase();
+      return SKILLS_DATA.filter(function(item) {
+        const catOk = appState.activeSkillCategory === `all` || item.category === appState.activeSkillCategory;
+        if (!catOk) return false;
+        if (!q) return true;
+        const haystack = (item.title + ` ` + item.summary + ` ` + item.equipment + ` ` + item.standards + ` ` + item.tasks.join(` `)).toLowerCase();
+        return haystack.indexOf(q) !== -1;
+      });
+    }
+
+    function renderSkillsSection() {
+      const gridEl = document.getElementById(`skills-grid`);
+      const detailEl = document.getElementById(`skill-detail-panel`);
+      const badgeEl = document.getElementById(`skills-count-badge`);
+      if (!gridEl || !detailEl) return;
+
+      const pills = document.querySelectorAll(`[data-cat]`);
+      pills.forEach(function(btn) {
+        if (btn.getAttribute(`data-cat`) === appState.activeSkillCategory) {
+          btn.classList.add(`is-active`);
+        } else {
+          btn.classList.remove(`is-active`);
+        }
+      });
+
+      const filtered = getFilteredSkills();
+      if (badgeEl) {
+        badgeEl.textContent = filtered.length + ` of ` + SKILLS_DATA.length + ` Disciplines Shown`;
+      }
+
+      if (filtered.length === 0) {
+        gridEl.innerHTML = `<div class="figure-card-plain" style="grid-column:1/-1;">
+          <strong>No matching competencies found.</strong>
+          <p style="color:var(--on-surface-variant);margin-top:var(--space-xs);font-size:0.9375rem;">Clear the keyword filter or switch back to All Systems to inspect all 8 trade competencies.</p>
+          <button type="button" class="btn btn-navy btn-sm" style="margin-top:var(--space-md);" onclick="resetSkillFilters()">Reset Skill Filters</button>
+        </div>`;
+        detailEl.innerHTML = `<span class="label-kicker">Inspector Ready</span>
+          <p style="color:var(--on-surface-variant);">Select any competency card on the left to view equipment platforms and BC NOC 72200 alignment.</p>`;
+        return;
+      }
+
+      const activeExists = filtered.some(function(s) { return s.id === appState.activeSkillId; });
+      if (!activeExists) {
+        appState.activeSkillId = filtered[0].id;
+      }
+
+      gridEl.innerHTML = filtered.map(function(skill) {
+        const isSel = skill.id === appState.activeSkillId;
+        return `<button type="button" role="listitem" class="skill-card${isSel ? ` is-selected` : ``}" onclick="selectSkill('${skill.id}')">
+          <div class="skill-card-head">
+            <span class="label-kicker">${skill.categoryLabel}</span>
+            <span class="stamp-tag">${isSel ? `Inspecting` : `Details`}</span>
+          </div>
+          <div class="skill-card-title">${skill.title}</div>
+          <div class="skill-card-summary">${skill.summary}</div>
+        </button>`;
+      }).join(``);
+
+      const selected = SKILLS_DATA.find(function(s) { return s.id === appState.activeSkillId; }) || filtered[0];
+      detailEl.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:var(--space-sm);flex-wrap:wrap;">
+          <span class="label-kicker">${selected.categoryLabel}</span>
+          <span class="stamp-tag-navy">${selected.standards}</span>
+        </div>
+        <h3 style="font-family:var(--font-headline);font-weight:700;font-size:1.35rem;line-height:1.2;">${selected.title}</h3>
+        <table class="spec-table">
+          <tbody>
+            <tr>
+              <th scope="row">Platforms &amp; Gear</th>
+              <td>${selected.equipment}</td>
+            </tr>
+            <tr>
+              <th scope="row">BC NOC 72200 Fit</th>
+              <td>${selected.bcMatch}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <div class="label-kicker" style="margin-bottom:var(--space-xs);">Verified Field Execution</div>
+          <ul class="detail-list">
+            ${selected.tasks.map(function(t) { return `<li>${t}</li>`; }).join(``)}
+          </ul>
+        </div>
+      `;
+    }
+
+    function setSkillCategory(cat) {
+      appState.activeSkillCategory = cat;
+      renderSkillsSection();
+      savePersistedState();
+    }
+
+    function setSkillQuery(val) {
+      appState.skillSearchQuery = val || ``;
+      renderSkillsSection();
+    }
+
+    function selectSkill(id) {
+      appState.activeSkillId = id;
+      renderSkillsSection();
+      savePersistedState();
+    }
+
+    function resetSkillFilters() {
+      appState.activeSkillCategory = `all`;
+      appState.skillSearchQuery = ``;
+      const input = document.getElementById(`skill-search`);
+      if (input) input.value = ``;
+      renderSkillsSection();
+      savePersistedState();
+    }
+
+    /* ==========================================================
+       SECTION 2: JULY 2026 CERTIFICATIONS RENDERING
+       ========================================================== */
+    function renderCertsSection() {
+      const tabsEl = document.querySelector(`.cert-tabs`);
+      const stageEl = document.getElementById(`cert-detail-stage`);
+      if (!tabsEl || !stageEl) return;
+
+      tabsEl.innerHTML = CERTS_DATA.map(function(cert, idx) {
+        const isAct = cert.id === appState.activeCertId;
+        return `<button type="button" role="tab" aria-selected="${isAct ? `true` : `false`}" class="cert-tab-btn${isAct ? ` is-active` : ``}" onclick="selectCert('${cert.id}')">
+          <span class="cert-tab-meta">0${idx + 1} &middot; ${cert.shortTitle}</span>
+          <span class="cert-tab-title">${cert.fullTitle}</span>
+        </button>`;
+      }).join(``);
+
+      const active = CERTS_DATA.find(function(c) { return c.id === appState.activeCertId; }) || CERTS_DATA[0];
+      const st = active.stageIndex;
+
+      stageEl.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-sm);flex-wrap:wrap;">
+          <div>
+            <span class="label-kicker">${active.issued}</span>
+            <h3 style="font-family:var(--font-headline);font-weight:700;font-size:1.35rem;margin-top:var(--space-xs);">${active.fullTitle}</h3>
+          </div>
+          <span class="stamp-tag-positive">Verified Credential</span>
+        </div>
+
+        <p style="font-size:0.9375rem;color:var(--on-surface-variant);">${active.summary}</p>
+
+        <div class="schematic-box" aria-label="Power to Automation Integration Diagram">
+          <div style="font-family:var(--font-label);font-size:var(--label-size);color:var(--safety-gold);margin-bottom:var(--space-sm);">
+            216-HOUR INTEGRATION ARCHITECTURE &middot; ACTIVE STAGE HIGHLIGHTED
+          </div>
+          <svg class="schematic-svg" viewBox="0 0 640 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram connecting EIM NC III Power to VFD Drives, Mechatronics NC II, and PLC/HMI Logic">
+            <line x1="145" y1="60" x2="175" y2="60" class="${st === 0 || st === 1 ? `svg-line-active` : `svg-line`}" />
+            <line x1="305" y1="60" x2="335" y2="60" class="${st === 1 || st === 2 ? `svg-line-active` : `svg-line`}" />
+            <line x1="465" y1="60" x2="495" y2="60" class="${st === 2 || st === 3 ? `svg-line-active` : `svg-line`}" />
+
+            <rect x="15" y="22" width="130" height="76" rx="3" class="${st === 0 ? `svg-node-active` : `svg-node-box`}" />
+            <text x="27" y="45" class="${st === 0 ? `svg-gold-text` : `svg-label`}">01 EIM NC III</text>
+            <text x="27" y="63" class="svg-sub">3-Phase Power</text>
+            <text x="27" y="77" class="svg-sub">&amp; Main Panels</text>
+
+            <rect x="175" y="22" width="130" height="76" rx="3" class="${st === 1 ? `svg-node-active` : `svg-node-box`}" />
+            <text x="187" y="45" class="${st === 1 ? `svg-gold-text` : `svg-label`}">02 VFD DRIVES</text>
+            <text x="187" y="63" class="svg-sub">Schneider / Delta</text>
+            <text x="187" y="77" class="svg-sub">Motor Control</text>
+
+            <rect x="335" y="22" width="130" height="76" rx="3" class="${st === 2 ? `svg-node-active` : `svg-node-box`}" />
+            <text x="347" y="45" class="${st === 2 ? `svg-gold-text` : `svg-label`}">03 MECHATRONICS</text>
+            <text x="347" y="63" class="svg-sub">NC II Electro-</text>
+            <text x="347" y="77" class="svg-sub">Pneumatics</text>
+
+            <rect x="495" y="22" width="130" height="76" rx="3" class="${st === 3 ? `svg-node-active` : `svg-node-box`}" />
+            <text x="507" y="45" class="${st === 3 ? `svg-gold-text` : `svg-label`}">04 PLC &amp; HMI</text>
+            <text x="507" y="63" class="svg-sub">Siemens Logo! &amp;</text>
+            <text x="507" y="77" class="svg-sub">Omron Logic</text>
+          </svg>
+        </div>
+
+        <div>
+          <div class="label-kicker" style="margin-bottom:var(--space-xs);">Certified Practical Competencies</div>
+          <ul class="detail-list">
+            ${active.competencies.map(function(c) { return `<li>${c}</li>`; }).join(``)}
+          </ul>
+        </div>
+
+        <div style="background:var(--gold-wash);border-left:3px solid var(--safety-gold);padding:var(--space-sm) var(--space-md);font-size:0.9375rem;">
+          <strong style="color:var(--primary);">BC Employer Advantage:</strong> ${active.bcValue}
+        </div>
+      `;
+    }
+
+    function selectCert(id) {
+      appState.activeCertId = id;
+      renderCertsSection();
+      savePersistedState();
+    }
+
+    /* ==========================================================
+       SECTION 3: WORK AUTHORIZATION PATHWAY TOGGLE
+       ========================================================== */
+    function renderAuthPathway() {
+      const cardEl = document.getElementById(`pathway-detail-card`);
+      const btnLmia = document.getElementById(`btn-pathway-lmia`);
+      const btnSpousal = document.getElementById(`btn-pathway-spousal`);
+      if (!cardEl) return;
+
+      if (btnLmia && btnSpousal) {
+        btnLmia.classList.toggle(`is-active`, appState.activePathway === `lmia`);
+        btnSpousal.classList.toggle(`is-active`, appState.activePathway === `spousal`);
+      }
+
+      const data = PATHWAYS_DATA[appState.activePathway] || PATHWAYS_DATA.lmia;
+      cardEl.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:var(--space-sm);flex-wrap:wrap;margin-bottom:var(--space-sm);">
+          <span class="label-kicker">${data.badge}</span>
+          <span class="stamp-tag-positive">Zero Long-Term Sponsorship Dependency</span>
+        </div>
+        <h3 style="font-family:var(--font-headline);font-weight:700;font-size:1.3rem;line-height:1.25;margin-bottom:var(--space-sm);">${data.title}</h3>
+        <p style="color:var(--on-surface-variant);margin-bottom:var(--space-md);">${data.summary}</p>
+        <ul class="detail-list" style="margin-bottom:var(--space-md);">
+          ${data.highlights.map(function(h) { return `<li>${h}</li>`; }).join(``)}
+        </ul>
+        <div style="background:var(--primary-container);padding:var(--space-md);border-left:3px solid var(--primary);font-size:0.9375rem;">
+          <strong style="color:var(--primary);">Bottom Line for BC Contractors:</strong> ${data.employerBenefit}
+        </div>
+      `;
+    }
+
+    function setAuthPathway(mode) {
+      appState.activePathway = mode;
+      renderAuthPathway();
+      savePersistedState();
+    }
+
+    /* ==========================================================
+       SECTION 5: MEDIA & FUTURE UPLOAD HUB
+       ========================================================== */
+    function buildPlaceholderSvg(type) {
+      if (type === `panel`) {
+        return `<svg width="160" height="96" viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="20" y="10" width="120" height="76" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="80" y1="18" x2="80" y2="78" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="34" y="24" width="32" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <rect x="34" y="40" width="32" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <rect x="94" y="24" width="32" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <rect x="94" y="40" width="32" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <rect x="64" y="60" width="32" height="16" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>`;
+      }
+      if (type === `conduit`) {
+        return `<svg width="160" height="96" viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20 72 H72 Q88 72 88 56 V32 Q88 20 104 20 H142" fill="none" stroke="currentColor" stroke-width="3"/>
+          <path d="M20 82 H78 Q98 82 98 62 V38 Q98 30 110 30 H142" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="116" y="14" width="18" height="22" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>`;
+      }
+      if (type === `cert`) {
+        return `<svg width="160" height="96" viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="24" y="14" width="112" height="68" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="40" y1="32" x2="104" y2="32" stroke="currentColor" stroke-width="2"/>
+          <line x1="40" y1="46" x2="92" y2="46" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="114" cy="58" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>`;
+      }
+      if (type === `vfd`) {
+        return `<svg width="160" height="96" viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="44" y="12" width="72" height="72" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="56" y="22" width="48" height="20" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="64" y="36" fill="currentColor" font-family="monospace" font-size="11">60.0Hz</text>
+          <circle cx="68" cy="60" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="92" cy="60" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>`;
+      }
+      if (type === `cad`) {
+        return `<svg width="160" height="96" viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="18" y="12" width="124" height="72" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="18" y1="48" x2="142" y2="48" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="80" y1="12" x2="80" y2="84" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/>
+          <circle cx="50" cy="30" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="110" cy="66" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <polyline points="50,37 50,66 103,66" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>`;
+      }
+      return `<svg width="160" height="96" viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="80" y1="16" x2="80" y2="50" stroke="currentColor" stroke-width="2"/>
+        <line x1="54" y1="50" x2="106" y2="50" stroke="currentColor" stroke-width="2"/>
+        <line x1="64" y1="60" x2="96" y2="60" stroke="currentColor" stroke-width="2"/>
+        <line x1="72" y1="70" x2="88" y2="70" stroke="currentColor" stroke-width="2"/>
+      </svg>`;
+    }
+
+    function renderMediaGallery() {
+      const gridEl = document.getElementById(`media-gallery-grid`);
+      const inspectorEl = document.getElementById(`media-inspector`);
+      const counterEl = document.getElementById(`media-upload-counter`);
+      if (!gridEl || !inspectorEl) return;
+
+      const pills = document.querySelectorAll(`[data-mcat]`);
+      pills.forEach(function(btn) {
+        btn.classList.toggle(`is-active`, btn.getAttribute(`data-mcat`) === appState.activeMediaFilter);
+      });
+
+      const uploadedCount = MEDIA_SLOTS.filter(function(m) { return Boolean(m.uploadedUrl); }).length + (currentVideoObjectUrl ? 1 : 0);
+      if (counterEl) {
+        counterEl.textContent = uploadedCount + (uploadedCount === 1 ? ` Local File Loaded` : ` Local Files Loaded`);
+      }
+
+      const visible = MEDIA_SLOTS.filter(function(slot) {
+        return appState.activeMediaFilter === `all` || slot.category === appState.activeMediaFilter;
+      });
+
+      if (!visible.some(function(s) { return s.id === appState.selectedMediaId; }) && visible.length > 0) {
+        appState.selectedMediaId = visible[0].id;
+      }
+
+      gridEl.innerHTML = visible.map(function(slot) {
+        const isSel = slot.id === appState.selectedMediaId;
+        const thumbHtml = slot.uploadedUrl
+          ? `<img src="${slot.uploadedUrl}" alt="${slot.title}">`
+          : `<div style="color:var(--primary);opacity:0.78;text-align:center;">${buildPlaceholderSvg(slot.placeholderType)}<div style="font-family:var(--font-label);font-size:10px;text-transform:uppercase;color:var(--on-surface-variant);">Awaiting Photo / Scan</div></div>`;
+
+        return `<div class="media-slot-card${isSel ? ` is-selected` : ``}" onclick="selectMediaSlot('${slot.id}')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMediaSlot('${slot.id}');}">
+          <div class="media-thumb-wrap">${thumbHtml}</div>
+          <div class="media-slot-body">
+            <span class="label-kicker">${slot.categoryLabel}</span>
+            <strong style="font-family:var(--font-headline);font-size:0.95rem;line-height:1.25;">${slot.title}</strong>
+          </div>
+        </div>`;
+      }).join(``);
+
+      const activeSlot = MEDIA_SLOTS.find(function(s) { return s.id === appState.selectedMediaId; }) || MEDIA_SLOTS[0];
+      const savedNote = appState.mediaNotes[activeSlot.id] || ``;
+      const previewHtml = activeSlot.uploadedUrl
+        ? `<img src="${activeSlot.uploadedUrl}" alt="${activeSlot.title}">`
+        : `<div style="color:var(--primary);text-align:center;padding:var(--space-md);">
+             ${buildPlaceholderSvg(activeSlot.placeholderType)}
+             <div style="font-family:var(--font-label);font-size:var(--label-size);color:var(--on-surface-variant);margin-top:var(--space-xs);">
+               Slot Ready &middot; Upload a local JPG/PNG/WebP image to preview here
+             </div>
+           </div>`;
+
+      inspectorEl.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:var(--space-sm);flex-wrap:wrap;">
+          <div>
+            <span class="label-kicker">Selected Slot &middot; ${activeSlot.categoryLabel}</span>
+            <h3 style="font-family:var(--font-headline);font-weight:700;font-size:1.15rem;">${activeSlot.title}</h3>
+          </div>
+          <div style="display:flex;gap:var(--space-xs);flex-wrap:wrap;">
+            <label for="single-slot-file" class="upload-label-btn btn-navy">
+              <i data-lucide="upload" aria-hidden="true" style="width:15px;height:15px;"></i>
+              ${activeSlot.uploadedUrl ? `Replace Image` : `Upload to Slot`}
+            </label>
+            <input type="file" id="single-slot-file" class="sr-only-file" accept="image/*" onchange="handleSingleSlotImage(this)">
+            ${activeSlot.uploadedUrl ? `<button type="button" class="btn btn-outline-navy btn-sm" onclick="clearMediaSlot('${activeSlot.id}')">Clear</button>` : ``}
+          </div>
+        </div>
+        <div class="media-inspector-preview">${previewHtml}</div>
+        <p style="font-size:0.875rem;color:var(--on-surface-variant);">${activeSlot.caption}${activeSlot.uploadedName ? ` &middot; Loaded file: <strong>` + activeSlot.uploadedName + `</strong>` : ``}</p>
+        <div style="display:grid;gap:var(--space-xs);">
+          <label for="slot-note-input" class="input-label">Recruiter / Presenter Note for This Slot (Saved Automatically)</label>
+          <input type="text" id="slot-note-input" class="text-input" value="${escapeAttr(savedNote)}" oninput="updateSlotNote('${activeSlot.id}', this.value)" placeholder="Add site location, client reference, or inspection note">
+        </div>
+      `;
+
+      refreshLucideIcons();
+    }
+
+    function escapeAttr(str) {
+      return String(str).replace(/&/g, `&amp;`).replace(/"/g, `&quot;`).replace(/</g, `&lt;`).replace(/>/g, `&gt;`);
+    }
+
+    function setMediaFilter(cat) {
+      appState.activeMediaFilter = cat;
+      renderMediaGallery();
+      savePersistedState();
+    }
+
+    function selectMediaSlot(id) {
+      appState.selectedMediaId = id;
+      renderMediaGallery();
+      savePersistedState();
+    }
+
+    function handleSingleSlotImage(input) {
+      if (!input || !input.files || !input.files[0]) return;
+      const file = input.files[0];
+      const slot = MEDIA_SLOTS.find(function(s) { return s.id === appState.selectedMediaId; });
+      if (!slot) return;
+      if (slot.uploadedUrl) URL.revokeObjectURL(slot.uploadedUrl);
+      slot.uploadedUrl = URL.createObjectURL(file);
+      slot.uploadedName = file.name;
+      input.value = ``;
+      renderMediaGallery();
+    }
+
+    function handleBatchImages(input) {
+      if (!input || !input.files || input.files.length === 0) return;
+      const files = Array.from(input.files);
+      let fileIdx = 0;
+      MEDIA_SLOTS.forEach(function(slot) {
+        if (!slot.uploadedUrl && fileIdx < files.length) {
+          slot.uploadedUrl = URL.createObjectURL(files[fileIdx]);
+          slot.uploadedName = files[fileIdx].name;
+          fileIdx++;
+        }
+      });
+      while (fileIdx < files.length) {
+        const target = MEDIA_SLOTS[fileIdx % MEDIA_SLOTS.length];
+        if (target.uploadedUrl) URL.revokeObjectURL(target.uploadedUrl);
+        target.uploadedUrl = URL.createObjectURL(files[fileIdx]);
+        target.uploadedName = files[fileIdx].name;
+        fileIdx++;
+      }
+      input.value = ``;
+      renderMediaGallery();
+    }
+
+    function clearMediaSlot(id) {
+      const slot = MEDIA_SLOTS.find(function(s) { return s.id === id; });
+      if (!slot) return;
+      if (slot.uploadedUrl) URL.revokeObjectURL(slot.uploadedUrl);
+      slot.uploadedUrl = null;
+      slot.uploadedName = null;
+      renderMediaGallery();
+    }
+
+    function updateSlotNote(id, value) {
+      appState.mediaNotes[id] = value;
+      savePersistedState();
+    }
+
+    function handleVideoUpload(input) {
+      const frame = document.getElementById(`video-player-frame`);
+      const resetBtn = document.getElementById(`reset-video-btn`);
+      if (!input || !input.files || !input.files[0] || !frame) return;
+      const file = input.files[0];
+      if (currentVideoObjectUrl) URL.revokeObjectURL(currentVideoObjectUrl);
+      currentVideoObjectUrl = URL.createObjectURL(file);
+      frame.innerHTML = `<video controls playsinline src="${currentVideoObjectUrl}"></video>
+        <div style="font-family:var(--font-label);font-size:var(--label-size);color:var(--safety-gold);">Loaded Clip: ${file.name}</div>`;
+      if (resetBtn) resetBtn.disabled = false;
+      input.value = ``;
+      renderMediaGallery();
+    }
+
+    function resetVideoSlot() {
+      const frame = document.getElementById(`video-player-frame`);
+      const resetBtn = document.getElementById(`reset-video-btn`);
+      if (currentVideoObjectUrl) {
+        URL.revokeObjectURL(currentVideoObjectUrl);
+        currentVideoObjectUrl = null;
+      }
+      if (frame) {
+        frame.innerHTML = `<i data-lucide="film" aria-hidden="true" style="width:32px;height:32px;color:var(--safety-gold);"></i>
+          <strong style="font-size:1rem;">July 2026 Graduation Speech Preview Slot</strong>
+          <p style="font-size:0.875rem;color:var(--navy-lede);max-width:42ch;">
+            Load <code>AllanSayingFewWordsAtHisGrad.mp4</code> or any job-site walkthrough video from your device to play it directly here.
+          </p>`;
+      }
+      if (resetBtn) resetBtn.disabled = true;
+      renderMediaGallery();
+    }
+
+    /* ==========================================================
+       SECTION 6: CONTACT COPY & RESUME BRIEF DOWNLOAD
+       ========================================================== */
+    function showContactStatus(msg) {
+      const toast = document.getElementById(`contact-toast`);
+      if (toast) toast.textContent = msg;
+    }
+
+    function copyTextValue(text, label) {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === `function`) {
+        navigator.clipboard.writeText(text).then(function() {
+          showContactStatus(`Copied ` + label + `: ` + text);
+        }).catch(function() {
+          showContactStatus(label + `: ` + text);
+        });
+      } else {
+        showContactStatus(label + `: ` + text);
+      }
+    }
+
+    function downloadResumeBrief() {
+      const briefContent = [
+        `ALLAN VILLONES BAGUIO — CONSTRUCTION ELECTRICIAN & MASTER ELECTRICIAN PORTFOLIO`,
+        `=============================================================================`,
+        `Target Relocation : Aldergrove / Langley / Lower Mainland, BC, Canada`,
+        `Current Base      : Central Visayas (Bohol), Philippines`,
+        `Phone / WhatsApp  : +63 968-201-0925`,
+        `Email             : allanvbags0120131@email.com`,
+        `Trade Showcase    : facebook.com/allan.baguio.975871`,
+        ``,
+        `CANADIAN WORK AUTHORIZATION & CREDENTIALS`,
+        `- SkilledTradesBC Account: Active (Trade Equivalency Assessment in progress)`,
+        `- Statutory Declarations & Employer Verification Forms: Completed & Ready`,
+        `- Dual Pathway: Immediate LMIA onboarding + Spousal Open Work Permit & PR (spouse is Canadian citizen; zero long-term sponsorship dependency)`,
+        `- Philippine Registered Master Electrician (RME) license (CEC Part I transition ready)`,
+        `- Driver's License: Valid with Clean Record | OHS & First Aid: Verified`,
+        ``,
+        `JULY 2026 ADVANCED CERTIFICATIONS (216 HOURS TOTAL)`,
+        `- TESDA Electrical Installation & Maintenance (EIM NC III)`,
+        `- TESDA Mechatronics Servicing (NC II)`,
+        `- Variable Frequency Drives (VFD): Schneider Electric & Delta Electronics`,
+        `- PLC & HMI Programming: Siemens Logo! & Omron`,
+        ``,
+        `CORE FIELD COMPETENCIES (20+ YEARS EXPERIENCE)`,
+        `- Main distribution panels (single-phase & 3-phase, 30-750V multiphase)`,
+        `- EMT & rigid conduit bending, overhead/surface-mount & civil underground cabling`,
+        `- Standby generator & UPS connections, circuit testing & fault isolation`,
+        `- Swimming pool & hot tub equipotential bonding and grounding`,
+        `- AutoCAD Electrical schematic drafting (concept to permit approval)`,
+        `- Crew leadership (4-10 workers) & fluent English contracting with international clients (CA, US, UK, AU, CH, BE, FR)`,
+        `- BOHECO Electrician Cooperative Treasurer & "Wired for Canada" E-Book Advisor`
+      ].join(`\n`);
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: briefContent,
+          contentType: `text/plain`,
+          encoding: `UTF-8`,
+          filename: `Allan-Baguio-BC-Electrician-Brief.txt`
+        });
+        showContactStatus(`Downloaded Allan-Baguio-BC-Electrician-Brief.txt`);
+        return;
+      }
+
+      const blob = new Blob([briefContent], { type: `text/plain;charset=utf-8` });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement(`a`);
+      link.href = url;
+      link.download = `Allan-Baguio-BC-Electrician-Brief.txt`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      showContactStatus(`Downloaded Allan-Baguio-BC-Electrician-Brief.txt`);
+    }
+
+    function refreshLucideIcons() {
+      if (window.lucide && typeof window.lucide.createIcons === `function`) {
+        window.lucide.createIcons();
+      }
+    }
+
+    /* ==========================================================
+       INITIALIZATION
+       ========================================================== */
+    async function initPortfolio() {
+      await loadPersistedState();
+      renderSkillsSection();
+      renderCertsSection();
+      renderAuthPathway();
+      renderMediaGallery();
+      refreshLucideIcons();
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    if (document.readyState === `loading`) {
+      document.addEventListener(`DOMContentLoaded`, initPortfolio);
+    } else {
+      initPortfolio();
+    }
+  </script>
+</body>
+</html>
