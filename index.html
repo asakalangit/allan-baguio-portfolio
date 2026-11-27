@@ -893,10 +893,10 @@
       margin-top: var(--space-xs);
     }
 
-    /* Section 5: Media & Future Upload Hub */
+    /* Section 5: Media & Upload Hub */
     .media-hub-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.3fr);
       gap: var(--space-lg);
       align-items: start;
     }
@@ -909,6 +909,48 @@
       padding: var(--space-lg);
       display: grid;
       gap: var(--space-md);
+    }
+
+    .clip-selector-list {
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .clip-choice-btn {
+      width: 100%;
+      text-align: left;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--navy-card);
+      color: var(--on-primary);
+      border: 1px solid var(--navy-border);
+      border-left: 3px solid transparent;
+      border-radius: var(--rounded);
+      cursor: pointer;
+      display: grid;
+      gap: 2px;
+      transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .clip-choice-btn:hover {
+      border-color: var(--safety-gold);
+    }
+
+    .clip-choice-btn.is-active {
+      border-left: 3px solid var(--safety-gold);
+      border-color: var(--safety-gold);
+      background: color-mix(in srgb, var(--safety-gold) 14%, var(--primary));
+    }
+
+    .clip-choice-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--on-primary);
+    }
+
+    .clip-choice-meta {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      color: var(--navy-muted);
     }
 
     .video-player-frame {
@@ -1006,7 +1048,7 @@
     }
 
     .media-inspector-preview {
-      max-height: 240px;
+      max-height: 260px;
       background: var(--surface-container);
       border: var(--hairline);
       border-radius: var(--rounded);
@@ -1019,7 +1061,7 @@
 
     .media-inspector-preview img {
       max-width: 100%;
-      max-height: 220px;
+      max-height: 240px;
       object-fit: contain;
     }
 
@@ -1303,7 +1345,7 @@
           <span class="label-kicker">02 &middot; July 2026 Formal Upskilling &amp; Licensure</span>
           <h2 id="certs-heading">216 Hours of Certified Electrical &amp; Industrial Automation Training</h2>
           <p class="section-lede">
-            Completed formal TESDA national competency certifications and industrial drive/PLC training in July 2026—bridging traditional Philippine Registered Master Electrician (RME) construction mastery with modern automated building controls.
+            Completed 216 hours of certified electrical installation, mechatronics, VFD drive, and PLC/HMI training at AC-DC Training and Assessment Center Inc. (Cebu City, issued July 31, 2026)—bridging Philippine Registered Master Electrician (RME) construction mastery with modern automated building controls.
           </p>
         </div>
         <span class="stamp-tag-positive">
@@ -1452,43 +1494,43 @@
       </div>
     </section>
 
-    <!-- SECTION 5: MEDIA & FUTURE UPLOAD HUB -->
+    <!-- SECTION 5: MEDIA & UPLOAD HUB -->
     <section class="section-block" id="media-hub" aria-labelledby="media-heading">
       <div class="section-head">
         <div class="section-head-main">
-          <span class="label-kicker">05 &middot; Interactive Evidence Gallery &amp; Local File Preview</span>
-          <h2 id="media-heading">Media &amp; Future Upload Hub</h2>
+          <span class="label-kicker">05 &middot; Field &amp; Lab Video Clips + Certificate Gallery</span>
+          <h2 id="media-heading">Media &amp; Upload Hub</h2>
           <p class="section-lede">
-            Preview job-site installations, July 2026 certificate scans, AutoCAD plans, and graduation video clips directly in your browser. Select local files from your device to populate any slot immediately—files stay local in memory with zero external upload.
+            Watch repository field service and mechatronics clips, inspect the four July 2026 AC-DC training certificates, or load additional local photos/videos directly from your device.
           </p>
         </div>
-        <span class="stamp-tag" id="media-upload-counter">0 Local Files Loaded</span>
+        <span class="stamp-tag" id="media-upload-counter">4 Certificate Slots Ready</span>
       </div>
 
       <div class="media-hub-grid">
-        <!-- Video Showcase Slot -->
+        <!-- Video Showcase Stage -->
         <div class="video-stage">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:var(--space-sm);flex-wrap:wrap;">
-            <span class="badge-gold">Video Slot &middot; Graduation Remarks</span>
-            <span style="font-family:var(--font-label);font-size:var(--label-size);color:var(--navy-lede);">AllanSayingFewWordsAtHisGrad.mp4</span>
+            <span class="badge-gold" id="video-badge-label">Repo Video &middot; AC/DC Mechatronics</span>
+            <span style="font-family:var(--font-label);font-size:var(--label-size);color:var(--navy-lede);" id="video-filename-label">1ACDC_MechatronicsVid1.mp4</span>
+          </div>
+
+          <div class="clip-selector-list" id="video-clip-list" role="group" aria-label="Select video clip to play">
+            <!-- Populated dynamically -->
           </div>
 
           <div class="video-player-frame" id="video-player-frame">
-            <i data-lucide="film" aria-hidden="true" style="width:32px;height:32px;color:var(--safety-gold);"></i>
-            <strong style="font-size:1rem;">July 2026 Graduation Speech Preview Slot</strong>
-            <p style="font-size:0.875rem;color:var(--navy-lede);max-width:42ch;">
-              Load <code>AllanSayingFewWordsAtHisGrad.mp4</code> or any job-site walkthrough video from your device to play it directly here.
-            </p>
+            <!-- Populated dynamically -->
           </div>
 
           <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center;">
             <label for="video-file-input" class="upload-label-btn btn-gold">
               <i data-lucide="upload" aria-hidden="true" style="width:16px;height:16px;"></i>
-              Load Local Video (.mp4 / .mov)
+              Preview Local Video (.mp4 / .mov)
             </label>
             <input type="file" id="video-file-input" class="sr-only-file" accept="video/*" onchange="handleVideoUpload(this)">
             <button type="button" class="btn btn-outline-light btn-sm" id="reset-video-btn" onclick="resetVideoSlot()" disabled>
-              Clear Video
+              Use Repo Clip
             </button>
           </div>
 
@@ -1505,14 +1547,14 @@
           <div class="gallery-controls">
             <div class="filter-pills" role="group" aria-label="Media gallery category filters">
               <button type="button" class="filter-btn is-active" data-mcat="all" onclick="setMediaFilter('all')">All Slots</button>
+              <button type="button" class="filter-btn" data-mcat="certificate" onclick="setMediaFilter('certificate')">Certificates (4)</button>
               <button type="button" class="filter-btn" data-mcat="jobsite" onclick="setMediaFilter('jobsite')">Job-Site</button>
-              <button type="button" class="filter-btn" data-mcat="certificate" onclick="setMediaFilter('certificate')">Certificates</button>
               <button type="button" class="filter-btn" data-mcat="schematic" onclick="setMediaFilter('schematic')">AutoCAD</button>
             </div>
             <div>
               <label for="multi-image-input" class="upload-label-btn btn-navy">
                 <i data-lucide="image-plus" aria-hidden="true" style="width:16px;height:16px;"></i>
-                Batch Preview Photos / Scans
+                Batch Preview Local Photos
               </label>
               <input type="file" id="multi-image-input" class="sr-only-file" accept="image/*" multiple onchange="handleBatchImages(this)">
             </div>
@@ -1590,7 +1632,7 @@
       </div>
 
       <p class="sources-note">
-        Compiled from verified candidate documentation: <em>Allan Baguio &mdash; Construction Electrician Resume (BC Canada)</em>, <em>Application Cover Letter for VanCan Electric Ltd. (Job Bank #3644754)</em>, <em>BC Job Bank NOC 72200 Lower Mainland Benchmarks (#3644754 &amp; #3713287)</em>, and <em>July 2026 Graduation Remarks (AllanSayingFewWordsAtHisGrad.mp4)</em>.
+        Compiled from verified candidate documentation: <em>Allan Baguio &mdash; Construction Electrician Resume (BC Canada)</em>, <em>Application Cover Letter for VanCan Electric Ltd. (Job Bank #3644754)</em>, <em>BC Job Bank NOC 72200 Lower Mainland Benchmarks (#3644754 &amp; #3713287)</em>, <em>AC-DC Training Certificates (July 31, 2026)</em>, and <em>July 2026 Graduation Remarks (AllanSayingFewWordsAtHisGrad.mp4)</em>.
       </p>
     </div>
   </footer>
@@ -1655,13 +1697,13 @@
         categoryLabel: `PLC & VFD Automation`,
         title: `VFD Drive Parameterization`,
         summary: `Configuring, commissioning, and maintaining Variable Frequency Drives for industrial motor speed control.`,
-        standards: `July 2026 Advanced Drive Certification`,
+        standards: `July 2026 VFD Training (16 Hrs · Cert #VFD-2026-07-102)`,
         equipment: `Schneider Electric VFDs, Delta Electronics VFDs, 3-Phase Induction Motors`,
         tasks: [
-          `Configure VFD parameters including accel/decel ramps, V/f curves, current limits, and frequency setpoints.`,
-          `Commission Schneider Electric and Delta Electronics motor speed controllers for light industrial loads.`,
+          `Interpret VFD manuals, specifications, and wiring diagrams for Delta Electronics and Schneider Electric drives.`,
+          `Configure VFD parameters, fixed/variable-speed motor commissioning, and motor monitoring.`,
           `Diagnose overcurrent, overvoltage, and thermal trip faults on active drive installations.`,
-          `Perform preventive maintenance and parameter backup for motor control centers.`
+          `Perform preventive maintenance and troubleshooting of VFD-driven motor systems.`
         ],
         bcMatch: `Adds industrial motor-control commissioning beyond standard residential/commercial wiring.`
       },
@@ -1670,12 +1712,12 @@
         category: `automation`,
         categoryLabel: `PLC & VFD Automation`,
         title: `PLC & HMI Systems`,
-        summary: `Programmable Logic Controller ladder logic, HMI operator interfacing, and electro-mechanical automation.`,
-        standards: `TESDA Mechatronics NC II · July 2026`,
-        equipment: `Siemens Logo!, Omron PLCs, HMI Touch Panels, Pneumatic & Relay Control Logic`,
+        summary: `Programmable Logic Controller logic, HMI operator interfacing, and electro-mechanical automation.`,
+        standards: `Mechatronics NC II (80 Hrs) + PLC/HMI (40 Hrs) · July 2026`,
+        equipment: `Siemens Logo!, Omron PLCs, Siemens Web-Based HMI, Pneumatic & Relay Control Logic`,
         tasks: [
-          `Program, wire, and troubleshoot ladder logic using Siemens Logo! and Omron PLC platforms.`,
-          `Integrate Human-Machine Interface (HMI) screens with discrete I/O sensors, relays, and actuators.`,
+          `Install, program, and troubleshoot basic PLC systems using Siemens Logo! and Omron PLC platforms.`,
+          `Program PLC and web-based HMI applications using Siemens software, establishing PLC-HMI communication.`,
           `Service integrated electro-mechanical and pneumatic control circuits under Mechatronics NC II standards.`
         ],
         bcMatch: `Enables smooth handling of automated HVAC, pump stations, and industrial control panels.`
@@ -1731,60 +1773,60 @@
       {
         id: `eim-nc3`,
         stageIndex: 0,
-        shortTitle: `TESDA EIM NC III`,
-        fullTitle: `Electrical Installation & Maintenance (NC III)`,
-        issued: `July 2026 · Part of 216-Hour Certified Program`,
-        issuer: `Technical Education and Skills Development Authority (TESDA)`,
-        summary: `National certification validating advanced commercial and light industrial wiring, 3-phase power distribution, motor control circuitry, and code-compliant installation supervision.`,
+        shortTitle: `EIM NC III (80 Hrs)`,
+        fullTitle: `Electrical Installation and Maintenance NC III`,
+        issued: `July 13–22, 2026 (Issued July 31, 2026) · 80 Hours · Cert. No. 2026-07-31-0102`,
+        issuer: `AC-DC Training and Assessment Center Inc., Cebu City`,
+        summary: `80-hour training program validating commercial and industrial three-phase power distribution, lighting, motor control systems, technical drawing interpretation, and quality standards.`,
         competencies: [
-          `Commercial & industrial polyphase electrical installation and maintenance.`,
-          `Motor control wiring, magnetic starters, protective relays, and distribution panels.`,
-          `Pre-energization testing, fault isolation, and blueprint specification compliance.`
+          `Roughing-in and wiring for three-phase distribution systems for power, lighting, and motor control panels.`,
+          `Installation of data measurement and control systems on electrical and auxiliary equipment.`,
+          `Installing, assembling, testing, and maintaining motor control systems plus hand-tool and technical drawing competencies.`
         ],
         bcValue: `Provides formal, third-party verified technical equivalency evidence alongside 20+ years of PRC Registered Master Electrician experience for SkilledTradesBC review.`
       },
       {
         id: `vfd-training`,
         stageIndex: 1,
-        shortTitle: `VFD Drive Training`,
-        fullTitle: `Variable Frequency Drive (VFD) Commissioning & Control`,
-        issued: `July 2026 · Part of 216-Hour Certified Program`,
-        issuer: `Advanced Industrial Automation & Drives Training`,
-        summary: `Hands-on specialized training in configuring, parameterizing, commissioning, and maintaining modern AC motor speed controllers.`,
+        shortTitle: `VFD Drives (16 Hrs)`,
+        fullTitle: `Variable Frequency Drive (VFD) Training`,
+        issued: `July 23–24, 2026 (Issued July 31, 2026) · 16 Hours · Cert. No. VFD-2026-07-102`,
+        issuer: `AC-DC Training and Assessment Center Inc., Cebu City`,
+        summary: `16-hour hands-on program in interpreting VFD manuals and wiring diagrams, wiring and configuring drives, and commissioning/troubleshooting AC motor systems.`,
         competencies: [
-          `Parameter programming and motor nameplate tuning on Schneider Electric and Delta Electronics drives.`,
-          `Ramp acceleration/deceleration, torque boost, and multi-speed digital/analog input mapping.`,
-          `Fault code diagnosis, thermal protection verification, and drive preventive maintenance.`
+          `Interpret VFD manuals, specifications, and wiring diagrams for Delta Electronics and Schneider Electric drives.`,
+          `Install, wire, and configure Delta and Schneider Variable Frequency Drives (VFDs) with parameter setting and commissioning.`,
+          `Operate and monitor AC motors using VFDs and perform troubleshooting, diagnostics, and maintenance.`
         ],
         bcValue: `Equips BC commercial and industrial teams to commission variable-speed pumps, fans, conveyors, and HVAC motors without external vendor delays.`
       },
       {
         id: `mechatronics-nc2`,
         stageIndex: 2,
-        shortTitle: `Mechatronics NC II`,
-        fullTitle: `Mechatronics Servicing (NC II)`,
-        issued: `July 2026 · Part of 216-Hour Certified Program`,
-        issuer: `Technical Education and Skills Development Authority (TESDA)`,
-        summary: `Certified competence in integrated electro-mechanical, pneumatic, and automated industrial control systems.`,
+        shortTitle: `Mechatronics NC II (80 Hrs)`,
+        fullTitle: `Mechatronics Servicing NC II`,
+        issued: `July 1–10, 2026 (Issued July 31, 2026) · 80 Hours · Cert. No. 2026-07-31-0202`,
+        issuer: `AC-DC Training and Assessment Center Inc., Cebu City`,
+        summary: `80-hour program covering mechatronics and automation device installation, configuration, and testing, supported by technical drawing, mensuration, and circuit termination competencies.`,
         competencies: [
-          `Installing, calibrating, and troubleshooting electro-pneumatic valves, actuators, and sensors.`,
-          `Integrating electrical control cabinets with mechanical drive assemblies.`,
-          `Systematic root-cause diagnostics across multi-disciplinary automated equipment.`
+          `Install mechatronics and automation devices and configure/test complete mechatronics and automation systems.`,
+          `Terminate and connect electrical wiring and electronic circuits and test electronic components.`,
+          `Prepare and interpret technical drawings, perform mensuration and calculations, and apply quality and safety standards.`
         ],
         bcValue: `Ideal for light industrial plants, automated building systems, and food/logistics facilities across the Fraser Valley.`
       },
       {
         id: `plc-hmi`,
         stageIndex: 3,
-        shortTitle: `PLC & HMI Programming`,
-        fullTitle: `Programmable Logic Controllers (PLC) & HMI Systems`,
-        issued: `July 2026 · Part of 216-Hour Certified Program`,
-        issuer: `Advanced Industrial Automation & Drives Training`,
-        summary: `Comprehensive training in ladder logic programming, HMI screen integration, and real-time troubleshooting for automated processes.`,
+        shortTitle: `PLC & HMI (40 Hrs)`,
+        fullTitle: `Programmable Logic Controller (PLC) & Human Machine Interface (HMI) Programming`,
+        issued: `July 27–31, 2026 (Issued July 31, 2026) · 40 Hours · Cert. No. PLCHMI-2026-102`,
+        issuer: `AC-DC Training and Assessment Center Inc., Cebu City`,
+        summary: `40-hour program covering technical diagrams, basic PLC programming, Siemens web-based HMI applications, PLC-HMI communications, and full system commissioning.`,
         competencies: [
-          `Programming timers, counters, interlocks, and sequential control in Siemens Logo! and Omron PLCs.`,
-          `Wiring discrete/analog field devices and mapping HMI operator controls and alarm states.`,
-          `Online monitoring and rapid logic fault isolation during active production or commissioning.`
+          `Interpret technical drawings and diagrams and install/program basic PLC systems using Siemens Logo! PLC & Omron PLC.`,
+          `Program PLC and web-based HMI applications using Siemens software and establish PLC and HMI communication.`,
+          `Perform testing and commissioning of PLC and web HMI systems.`
         ],
         bcValue: `Bridges field electrician wiring skills with automated control logic—reducing commissioning downtime on smart commercial and industrial sites.`
       }
@@ -1817,7 +1859,78 @@
       }
     };
 
+    const VIDEO_CLIPS = [
+      {
+        id: `clip-mechatronics`,
+        badge: `Repo Video &middot; AC/DC Mechatronics`,
+        filename: `1ACDC_MechatronicsVid1.mp4`,
+        src: `1ACDC_MechatronicsVid1.mp4`,
+        label: `01 · AC/DC Mechatronics & Automation Clip`,
+        meta: `1ACDC_MechatronicsVid1.mp4 · July 2026 Training`
+      },
+      {
+        id: `clip-fixing-hotel`,
+        badge: `Repo Video &middot; Hotel Electrical Fix`,
+        filename: `FixingAtRMMoninaHotel.mp4`,
+        src: `FixingAtRMMoninaHotel.mp4`,
+        label: `02 · Electrical Servicing at RM Monina Hotel`,
+        meta: `FixingAtRMMoninaHotel.mp4 · Field Work`
+      },
+      {
+        id: `clip-returning-key`,
+        badge: `Repo Video &middot; Panel Key Handover`,
+        filename: `ReturningKeyOfPanelAtRMMoninaInnHotel.mp4`,
+        src: `ReturningKeyOfPanelAtRMMoninaInnHotel.mp4`,
+        label: `03 · Panel Handover at RM Monina Inn Hotel`,
+        meta: `ReturningKeyOfPanelAtRMMoninaInnHotel.mp4 · Site Completion`
+      }
+    ];
+
     const MEDIA_SLOTS = [
+      {
+        id: `slot-cert-eim`,
+        category: `certificate`,
+        categoryLabel: `Certificate (80 Hrs)`,
+        title: `EIM NC III Training Certificate`,
+        caption: `AC-DC Training and Assessment Center Inc. · July 13–22, 2026 (Issued July 31, 2026) · Cert. No. 2026-07-31-0102.`,
+        placeholderType: `cert`,
+        defaultSrc: `PNGElectricalMaintenanceAndInstallation%20NCIII.png`,
+        uploadedUrl: null,
+        uploadedName: null
+      },
+      {
+        id: `slot-cert-mechatronics`,
+        category: `certificate`,
+        categoryLabel: `Certificate (80 Hrs)`,
+        title: `Mechatronics Servicing NC II Certificate`,
+        caption: `AC-DC Training and Assessment Center Inc. · July 1–10, 2026 (Issued July 31, 2026) · Cert. No. 2026-07-31-0202.`,
+        placeholderType: `cert`,
+        defaultSrc: `PNGMechatronicsServicingMCII.png`,
+        uploadedUrl: null,
+        uploadedName: null
+      },
+      {
+        id: `slot-cert-vfd`,
+        category: `certificate`,
+        categoryLabel: `Certificate (16 Hrs)`,
+        title: `VFD Training Certificate`,
+        caption: `AC-DC Training and Assessment Center Inc. · July 23–24, 2026 (Issued July 31, 2026) · Cert. No. VFD-2026-07-102 (Delta & Schneider VFDs).`,
+        placeholderType: `vfd`,
+        defaultSrc: `PNGVFD.png`,
+        uploadedUrl: null,
+        uploadedName: null
+      },
+      {
+        id: `slot-cert-plc`,
+        category: `certificate`,
+        categoryLabel: `Certificate (40 Hrs)`,
+        title: `PLC & HMI Programming Certificate`,
+        caption: `AC-DC Training and Assessment Center Inc. · July 27–31, 2026 (Issued July 31, 2026) · Cert. No. PLCHMI-2026-102 (Siemens Logo!, Omron & Web HMI).`,
+        placeholderType: `vfd`,
+        defaultSrc: `PNGPLCAndHMIcertificate.png`,
+        uploadedUrl: null,
+        uploadedName: null
+      },
       {
         id: `slot-1`,
         category: `jobsite`,
@@ -1825,6 +1938,7 @@
         title: `3-Phase Commercial Panel Assembly`,
         caption: `Multi-storey commercial unit 3-phase main distribution panel hookup, breaker labeling, and load balancing.`,
         placeholderType: `panel`,
+        defaultSrc: null,
         uploadedUrl: null,
         uploadedName: null
       },
@@ -1835,26 +1949,7 @@
         title: `EMT & Rigid Conduit Runs`,
         caption: `Surface-mount and overhead EMT/rigid steel conduit bending with pull boxes in commercial construction.`,
         placeholderType: `conduit`,
-        uploadedUrl: null,
-        uploadedName: null
-      },
-      {
-        id: `slot-3`,
-        category: `certificate`,
-        categoryLabel: `Certificate Scan`,
-        title: `TESDA EIM NC III & Mechatronics NC II`,
-        caption: `July 2026 national competency certificates plus PRC Registered Master Electrician license scan.`,
-        placeholderType: `cert`,
-        uploadedUrl: null,
-        uploadedName: null
-      },
-      {
-        id: `slot-4`,
-        category: `certificate`,
-        categoryLabel: `Certificate Scan`,
-        title: `VFD & PLC/HMI Lab Bench (216 Hrs)`,
-        caption: `Schneider Electric / Delta Electronics VFD parameterization and Siemens Logo! / Omron PLC commissioning.`,
-        placeholderType: `vfd`,
+        defaultSrc: null,
         uploadedUrl: null,
         uploadedName: null
       },
@@ -1865,6 +1960,7 @@
         title: `AutoCAD Permit Electrical Plan`,
         caption: `Concept-to-permit lighting, power distribution, and single-line riser diagram drafted in AutoCAD.`,
         placeholderType: `cad`,
+        defaultSrc: null,
         uploadedUrl: null,
         uploadedName: null
       },
@@ -1875,6 +1971,7 @@
         title: `Pool & Hot Tub Equipotential Bonding`,
         caption: `Wet-location grounding, copper bonding grid verification, and GFCI protection inspection.`,
         placeholderType: `ground`,
+        defaultSrc: null,
         uploadedUrl: null,
         uploadedName: null
       }
@@ -1889,12 +1986,15 @@
       activeSkillId: `panel-assembly`,
       activeCertId: `eim-nc3`,
       activePathway: `lmia`,
+      activeClipId: `clip-mechatronics`,
       activeMediaFilter: `all`,
-      selectedMediaId: `slot-1`,
+      selectedMediaId: `slot-cert-eim`,
       mediaNotes: {}
     };
 
+    const brokenDefaultImages = {};
     let currentVideoObjectUrl = null;
+    let currentLocalVideoName = null;
 
     /* ==========================================================
        PERSISTENCE HELPERS (notebookAppApi safe)
@@ -1908,6 +2008,7 @@
             if (typeof saved.activeSkillId === `string`) appState.activeSkillId = saved.activeSkillId;
             if (typeof saved.activeCertId === `string`) appState.activeCertId = saved.activeCertId;
             if (typeof saved.activePathway === `string`) appState.activePathway = saved.activePathway;
+            if (typeof saved.activeClipId === `string`) appState.activeClipId = saved.activeClipId;
             if (typeof saved.activeMediaFilter === `string`) appState.activeMediaFilter = saved.activeMediaFilter;
             if (typeof saved.selectedMediaId === `string`) appState.selectedMediaId = saved.selectedMediaId;
             if (saved.mediaNotes && typeof saved.mediaNotes === `object`) appState.mediaNotes = saved.mediaNotes;
@@ -1926,6 +2027,7 @@
             activeSkillId: appState.activeSkillId,
             activeCertId: appState.activeCertId,
             activePathway: appState.activePathway,
+            activeClipId: appState.activeClipId,
             activeMediaFilter: appState.activeMediaFilter,
             selectedMediaId: appState.selectedMediaId,
             mediaNotes: appState.mediaNotes
@@ -2093,23 +2195,23 @@
 
             <rect x="15" y="22" width="130" height="76" rx="3" class="${st === 0 ? `svg-node-active` : `svg-node-box`}" />
             <text x="27" y="45" class="${st === 0 ? `svg-gold-text` : `svg-label`}">01 EIM NC III</text>
-            <text x="27" y="63" class="svg-sub">3-Phase Power</text>
+            <text x="27" y="63" class="svg-sub">80 Hrs · 3-Phase</text>
             <text x="27" y="77" class="svg-sub">&amp; Main Panels</text>
 
             <rect x="175" y="22" width="130" height="76" rx="3" class="${st === 1 ? `svg-node-active` : `svg-node-box`}" />
             <text x="187" y="45" class="${st === 1 ? `svg-gold-text` : `svg-label`}">02 VFD DRIVES</text>
-            <text x="187" y="63" class="svg-sub">Schneider / Delta</text>
-            <text x="187" y="77" class="svg-sub">Motor Control</text>
+            <text x="187" y="63" class="svg-sub">16 Hrs · Delta &amp;</text>
+            <text x="187" y="77" class="svg-sub">Schneider VFDs</text>
 
             <rect x="335" y="22" width="130" height="76" rx="3" class="${st === 2 ? `svg-node-active` : `svg-node-box`}" />
             <text x="347" y="45" class="${st === 2 ? `svg-gold-text` : `svg-label`}">03 MECHATRONICS</text>
-            <text x="347" y="63" class="svg-sub">NC II Electro-</text>
-            <text x="347" y="77" class="svg-sub">Pneumatics</text>
+            <text x="347" y="63" class="svg-sub">80 Hrs · NC II</text>
+            <text x="347" y="77" class="svg-sub">Automation</text>
 
             <rect x="495" y="22" width="130" height="76" rx="3" class="${st === 3 ? `svg-node-active` : `svg-node-box`}" />
             <text x="507" y="45" class="${st === 3 ? `svg-gold-text` : `svg-label`}">04 PLC &amp; HMI</text>
-            <text x="507" y="63" class="svg-sub">Siemens Logo! &amp;</text>
-            <text x="507" y="77" class="svg-sub">Omron Logic</text>
+            <text x="507" y="63" class="svg-sub">40 Hrs · Logo!,</text>
+            <text x="507" y="77" class="svg-sub">Omron &amp; HMI</text>
           </svg>
         </div>
 
@@ -2170,8 +2272,14 @@
     }
 
     /* ==========================================================
-       SECTION 5: MEDIA & FUTURE UPLOAD HUB
+       SECTION 5: MEDIA & UPLOAD HUB (VIDEOS + CERTIFICATES)
        ========================================================== */
+    function getActiveSlotImageSrc(slot) {
+      if (slot.uploadedUrl) return slot.uploadedUrl;
+      if (slot.defaultSrc && !brokenDefaultImages[slot.id]) return slot.defaultSrc;
+      return null;
+    }
+
     function buildPlaceholderSvg(type) {
       if (type === `panel`) {
         return `<svg width="160" height="96" viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -2226,6 +2334,61 @@
       </svg>`;
     }
 
+    function renderVideoStage() {
+      const clipListEl = document.getElementById(`video-clip-list`);
+      const frameEl = document.getElementById(`video-player-frame`);
+      const badgeEl = document.getElementById(`video-badge-label`);
+      const fileLabelEl = document.getElementById(`video-filename-label`);
+      const resetBtn = document.getElementById(`reset-video-btn`);
+      if (!frameEl) return;
+
+      const activeClip = VIDEO_CLIPS.find(function(c) { return c.id === appState.activeClipId; }) || VIDEO_CLIPS[0];
+
+      if (clipListEl) {
+        clipListEl.innerHTML = VIDEO_CLIPS.map(function(clip) {
+          const isAct = !currentVideoObjectUrl && clip.id === activeClip.id;
+          return `<button type="button" class="clip-choice-btn${isAct ? ` is-active` : ``}" onclick="selectVideoClip('${clip.id}')">
+            <span class="clip-choice-title">${clip.label}</span>
+            <span class="clip-choice-meta">${clip.meta}</span>
+          </button>`;
+        }).join(``);
+      }
+
+      if (currentVideoObjectUrl) {
+        if (badgeEl) badgeEl.textContent = `Local Preview &middot; Custom Video`;
+        if (fileLabelEl) fileLabelEl.textContent = currentLocalVideoName || `Local Clip`;
+        if (resetBtn) resetBtn.disabled = false;
+        frameEl.innerHTML = `
+          <video controls playsinline preload="metadata" src="${currentVideoObjectUrl}"></video>
+          <div style="font-family:var(--font-label);font-size:var(--label-size);color:var(--safety-gold);">Local Preview: ${escapeAttr(currentLocalVideoName || `Clip`)}</div>
+        `;
+      } else {
+        if (badgeEl) badgeEl.innerHTML = activeClip.badge;
+        if (fileLabelEl) fileLabelEl.textContent = activeClip.filename;
+        if (resetBtn) resetBtn.disabled = true;
+        frameEl.innerHTML = `
+          <video controls playsinline preload="metadata" src="${activeClip.src}"></video>
+          <div style="font-family:var(--font-label);font-size:var(--label-size);color:var(--safety-gold);">${activeClip.filename}</div>
+        `;
+      }
+    }
+
+    function selectVideoClip(id) {
+      if (currentVideoObjectUrl) {
+        URL.revokeObjectURL(currentVideoObjectUrl);
+        currentVideoObjectUrl = null;
+        currentLocalVideoName = null;
+      }
+      appState.activeClipId = id;
+      renderVideoStage();
+      savePersistedState();
+    }
+
+    function handleDefaultImageError(slotId) {
+      brokenDefaultImages[slotId] = true;
+      renderMediaGallery();
+    }
+
     function renderMediaGallery() {
       const gridEl = document.getElementById(`media-gallery-grid`);
       const inspectorEl = document.getElementById(`media-inspector`);
@@ -2237,9 +2400,12 @@
         btn.classList.toggle(`is-active`, btn.getAttribute(`data-mcat`) === appState.activeMediaFilter);
       });
 
-      const uploadedCount = MEDIA_SLOTS.filter(function(m) { return Boolean(m.uploadedUrl); }).length + (currentVideoObjectUrl ? 1 : 0);
+      const localCount = MEDIA_SLOTS.filter(function(m) { return Boolean(m.uploadedUrl); }).length + (currentVideoObjectUrl ? 1 : 0);
+      const repoCertCount = MEDIA_SLOTS.filter(function(m) { return m.category === `certificate` && !brokenDefaultImages[m.id]; }).length;
       if (counterEl) {
-        counterEl.textContent = uploadedCount + (uploadedCount === 1 ? ` Local File Loaded` : ` Local Files Loaded`);
+        counterEl.textContent = localCount > 0
+          ? (localCount + ` Local Override` + (localCount === 1 ? `` : `s`) + ` + ` + repoCertCount + ` Certs`)
+          : (repoCertCount + ` of 4 July 2026 Certs`);
       }
 
       const visible = MEDIA_SLOTS.filter(function(slot) {
@@ -2252,8 +2418,9 @@
 
       gridEl.innerHTML = visible.map(function(slot) {
         const isSel = slot.id === appState.selectedMediaId;
-        const thumbHtml = slot.uploadedUrl
-          ? `<img src="${slot.uploadedUrl}" alt="${slot.title}">`
+        const imgSrc = getActiveSlotImageSrc(slot);
+        const thumbHtml = imgSrc
+          ? `<img src="${imgSrc}" alt="${escapeAttr(slot.title)}" onerror="handleDefaultImageError('${slot.id}')">`
           : `<div style="color:var(--primary);opacity:0.78;text-align:center;">${buildPlaceholderSvg(slot.placeholderType)}<div style="font-family:var(--font-label);font-size:10px;text-transform:uppercase;color:var(--on-surface-variant);">Awaiting Photo / Scan</div></div>`;
 
         return `<div class="media-slot-card${isSel ? ` is-selected` : ``}" onclick="selectMediaSlot('${slot.id}')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMediaSlot('${slot.id}');}">
@@ -2267,14 +2434,21 @@
 
       const activeSlot = MEDIA_SLOTS.find(function(s) { return s.id === appState.selectedMediaId; }) || MEDIA_SLOTS[0];
       const savedNote = appState.mediaNotes[activeSlot.id] || ``;
-      const previewHtml = activeSlot.uploadedUrl
-        ? `<img src="${activeSlot.uploadedUrl}" alt="${activeSlot.title}">`
+      const activeSrc = getActiveSlotImageSrc(activeSlot);
+      const previewHtml = activeSrc
+        ? `<img src="${activeSrc}" alt="${escapeAttr(activeSlot.title)}" onerror="handleDefaultImageError('${activeSlot.id}')">`
         : `<div style="color:var(--primary);text-align:center;padding:var(--space-md);">
              ${buildPlaceholderSvg(activeSlot.placeholderType)}
              <div style="font-family:var(--font-label);font-size:var(--label-size);color:var(--on-surface-variant);margin-top:var(--space-xs);">
                Slot Ready &middot; Upload a local JPG/PNG/WebP image to preview here
              </div>
            </div>`;
+
+      const sourceLabel = activeSlot.uploadedUrl
+        ? `Local file: <strong>${escapeAttr(activeSlot.uploadedName || `Uploaded`)}</strong>`
+        : (activeSlot.defaultSrc && !brokenDefaultImages[activeSlot.id]
+            ? `Repo file: <code>${decodeURIComponent(activeSlot.defaultSrc)}</code>`
+            : `Placeholder slot`);
 
       inspectorEl.innerHTML = `
         <div style="display:flex;justify-content:space-between;align-items:center;gap:var(--space-sm);flex-wrap:wrap;">
@@ -2285,14 +2459,14 @@
           <div style="display:flex;gap:var(--space-xs);flex-wrap:wrap;">
             <label for="single-slot-file" class="upload-label-btn btn-navy">
               <i data-lucide="upload" aria-hidden="true" style="width:15px;height:15px;"></i>
-              ${activeSlot.uploadedUrl ? `Replace Image` : `Upload to Slot`}
+              ${activeSlot.uploadedUrl ? `Replace Local` : `Preview Local`}
             </label>
             <input type="file" id="single-slot-file" class="sr-only-file" accept="image/*" onchange="handleSingleSlotImage(this)">
-            ${activeSlot.uploadedUrl ? `<button type="button" class="btn btn-outline-navy btn-sm" onclick="clearMediaSlot('${activeSlot.id}')">Clear</button>` : ``}
+            ${activeSlot.uploadedUrl ? `<button type="button" class="btn btn-outline-navy btn-sm" onclick="clearMediaSlot('${activeSlot.id}')">Revert</button>` : ``}
           </div>
         </div>
         <div class="media-inspector-preview">${previewHtml}</div>
-        <p style="font-size:0.875rem;color:var(--on-surface-variant);">${activeSlot.caption}${activeSlot.uploadedName ? ` &middot; Loaded file: <strong>` + activeSlot.uploadedName + `</strong>` : ``}</p>
+        <p style="font-size:0.875rem;color:var(--on-surface-variant);">${activeSlot.caption} &middot; ${sourceLabel}</p>
         <div style="display:grid;gap:var(--space-xs);">
           <label for="slot-note-input" class="input-label">Recruiter / Presenter Note for This Slot (Saved Automatically)</label>
           <input type="text" id="slot-note-input" class="text-input" value="${escapeAttr(savedNote)}" oninput="updateSlotNote('${activeSlot.id}', this.value)" placeholder="Add site location, client reference, or inspection note">
@@ -2367,34 +2541,23 @@
     }
 
     function handleVideoUpload(input) {
-      const frame = document.getElementById(`video-player-frame`);
-      const resetBtn = document.getElementById(`reset-video-btn`);
-      if (!input || !input.files || !input.files[0] || !frame) return;
+      if (!input || !input.files || !input.files[0]) return;
       const file = input.files[0];
       if (currentVideoObjectUrl) URL.revokeObjectURL(currentVideoObjectUrl);
       currentVideoObjectUrl = URL.createObjectURL(file);
-      frame.innerHTML = `<video controls playsinline src="${currentVideoObjectUrl}"></video>
-        <div style="font-family:var(--font-label);font-size:var(--label-size);color:var(--safety-gold);">Loaded Clip: ${file.name}</div>`;
-      if (resetBtn) resetBtn.disabled = false;
+      currentLocalVideoName = file.name;
       input.value = ``;
+      renderVideoStage();
       renderMediaGallery();
     }
 
     function resetVideoSlot() {
-      const frame = document.getElementById(`video-player-frame`);
-      const resetBtn = document.getElementById(`reset-video-btn`);
       if (currentVideoObjectUrl) {
         URL.revokeObjectURL(currentVideoObjectUrl);
         currentVideoObjectUrl = null;
+        currentLocalVideoName = null;
       }
-      if (frame) {
-        frame.innerHTML = `<i data-lucide="film" aria-hidden="true" style="width:32px;height:32px;color:var(--safety-gold);"></i>
-          <strong style="font-size:1rem;">July 2026 Graduation Speech Preview Slot</strong>
-          <p style="font-size:0.875rem;color:var(--navy-lede);max-width:42ch;">
-            Load <code>AllanSayingFewWordsAtHisGrad.mp4</code> or any job-site walkthrough video from your device to play it directly here.
-          </p>`;
-      }
-      if (resetBtn) resetBtn.disabled = true;
+      renderVideoStage();
       renderMediaGallery();
     }
 
@@ -2435,11 +2598,11 @@
         `- Philippine Registered Master Electrician (RME) license (CEC Part I transition ready)`,
         `- Driver's License: Valid with Clean Record | OHS & First Aid: Verified`,
         ``,
-        `JULY 2026 ADVANCED CERTIFICATIONS (216 HOURS TOTAL)`,
-        `- TESDA Electrical Installation & Maintenance (EIM NC III)`,
-        `- TESDA Mechatronics Servicing (NC II)`,
-        `- Variable Frequency Drives (VFD): Schneider Electric & Delta Electronics`,
-        `- PLC & HMI Programming: Siemens Logo! & Omron`,
+        `JULY 2026 ADVANCED CERTIFICATIONS (216 HOURS TOTAL · AC-DC TRAINING, CEBU CITY)`,
+        `- Mechatronics Servicing NC II: 80 hrs (July 1–10, 2026 · Issued July 31, 2026 · Cert #2026-07-31-0202)`,
+        `- Electrical Installation and Maintenance NC III: 80 hrs (July 13–22, 2026 · Issued July 31, 2026 · Cert #2026-07-31-0102)`,
+        `- Variable Frequency Drive (VFD) Training: 16 hrs (July 23–24, 2026 · Issued July 31, 2026 · Cert #VFD-2026-07-102 · Delta & Schneider)`,
+        `- PLC & HMI Programming: 40 hrs (July 27–31, 2026 · Issued July 31, 2026 · Cert #PLCHMI-2026-102 · Siemens Logo!, Omron & Web HMI)`,
         ``,
         `CORE FIELD COMPETENCIES (20+ YEARS EXPERIENCE)`,
         `- Main distribution panels (single-phase & 3-phase, 30-750V multiphase)`,
@@ -2488,6 +2651,7 @@
       renderSkillsSection();
       renderCertsSection();
       renderAuthPathway();
+      renderVideoStage();
       renderMediaGallery();
       refreshLucideIcons();
       if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
